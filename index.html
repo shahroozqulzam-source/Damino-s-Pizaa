@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Best Damino's Pizza — Jaranwala</title>
+  <link rel="icon" type="image/png" href="1.png" />
+  <link rel="apple-touch-icon" href="1.png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#e31c1c" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Damino's Pizza" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <img src="1.png" alt="Damino's Pizza Logo" class="logo-img"
+          onerror="this.style.display='none';this.nextElementSibling.querySelector('.logo-icon').style.display='inline';" />
+        <div class="logo-text">
+          <span class="logo-icon" style="display:none;font-size:2rem;">🍕</span>
+          <span class="logo-main">Damino's</span>
+          <span class="logo-sub">PIZZA</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#deals" class="nav-link">Deals</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#location" class="nav-link">Location</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <a href="https://wa.me/923025001330" target="_blank" class="order-btn">
+          <i class="fab fa-whatsapp"></i> Order Now
+        </a>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-fire"></i> Limited Time — 15% OFF All Orders</div>
+      <h1 class="hero-title">
+        Taste of <span class="highlight">Life</span><br/>
+        with The Best<br/>
+        <span class="brand-name">Damino's Pizza</span>
+      </h1>
+      <p class="hero-desc">Hot, fresh &amp; delivered to your doorstep in 30–45 minutes. Serving Jaranwala with love.</p>
+      <div class="hero-btns">
+        <a href="#menu" class="btn-primary"><i class="fas fa-utensils"></i> Explore Menu</a>
+        <a href="https://wa.me/923025001330" target="_blank" class="btn-secondary"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Happy Customers</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Menu Items</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">30min</span><span class="stat-label">Fast Delivery</span></div>
+      </div>
+    </div>
+    <div class="hero-image" id="heroPizzaWrap">
+      <div class="pizza-ring"></div>
+      <div class="pizza-ring ring2"></div>
+      <!-- hover label -->
+      <div class="pizza-hover-label"><i class="fas fa-sync-alt"></i> Hover to explore</div>
+      <!-- images stack, JS cycles through them -->
+      <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700&q=90" alt="Damino's Special Pizza" class="hero-pizza-img active-pizza" id="heroPizzaImg" />
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll Down</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES STRIP ===== -->
+  <section class="features-strip">
+    <div class="feature-item">
+      <i class="fas fa-motorcycle"></i>
+      <div><strong>Fast Delivery</strong><span>30–45 Minutes</span></div>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-leaf"></i>
+      <div><strong>Fresh Ingredients</strong><span>Made Daily</span></div>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-clock"></i>
+      <div><strong>Open Late</strong><span>10 AM – 2 AM</span></div>
+    </div>
+    <div class="feature-item">
+      <i class="fab fa-whatsapp"></i>
+      <div><strong>Easy Ordering</strong><span>Via WhatsApp</span></div>
+    </div>
+  </section>
+
+  <!-- ===== MENU ===== -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Menu</span>
+        <h2>What Would You Like <span class="highlight">Today?</span></h2>
+        <p>Freshly prepared with quality ingredients — pick your favorites and order in seconds.</p>
+      </div>
+      <div class="menu-tabs" id="menuTabs">
+        <button class="tab-btn active" onclick="filterMenu('all', this)">All</button>
+        <button class="tab-btn" onclick="filterMenu('pizza', this)">🍕 Pizza</button>
+        <button class="tab-btn" onclick="filterMenu('burger', this)">🍔 Burgers</button>
+        <button class="tab-btn" onclick="filterMenu('wings', this)">🍗 Wings &amp; Nuggets</button>
+        <button class="tab-btn" onclick="filterMenu('paratha', this)">🫓 Paratha</button>
+        <button class="tab-btn" onclick="filterMenu('pasta', this)">🍝 Pasta</button>
+        <button class="tab-btn" onclick="filterMenu('chinese', this)">🍜 Chinese</button>
+        <button class="tab-btn" onclick="filterMenu('shawarma', this)">🌯 Shawarma</button>
+        <button class="tab-btn" onclick="filterMenu('sandwich', this)">🥪 Sandwich</button>
+        <button class="tab-btn" onclick="filterMenu('fish', this)">🐟 Fish</button>
+        <button class="tab-btn" onclick="filterMenu('sides', this)">🍟 Sides</button>
+        <button class="tab-btn" onclick="filterMenu('drinks', this)">🥤 Drinks</button>
+      </div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== DEALS ===== -->
+  <section class="deals-section" id="deals">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Hot Deals</span>
+        <h2>Best Value <span class="highlight">Combos</span></h2>
+        <p>More food, more savings. Perfect for families and groups.</p>
+      </div>
+      <div class="deals-grid" id="dealsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about-section" id="about">
+    <div class="container about-container">
+      <div class="about-image-wrap">
+        <div class="about-img-bg"></div>
+        <div class="about-pizza-visual">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&q=90" alt="About Damino's" />
+        </div>
+        <div class="about-badge-card">
+          <i class="fas fa-award"></i>
+          <span>Best Pizza<br/>in Jaranwala</span>
+        </div>
+      </div>
+      <div class="about-content">
+        <span class="section-tag">About Us</span>
+        <h2>We're More Than Just <span class="highlight">Pizza</span></h2>
+        <p class="about-lead">The Best Damino's Pizza is a local gem in Jaranwala, dedicated to bringing you the most delicious fast food experience with every single order.</p>
+        <p>From our signature pizzas to crispy wings, juicy burgers, and authentic Chinese dishes — every item on our menu is crafted with fresh ingredients and a whole lot of love. We believe great food should be accessible, affordable, and always delivered hot.</p>
+        <div class="about-features">
+          <div class="about-feat"><i class="fas fa-check-circle"></i> Fresh ingredients prepared daily</div>
+          <div class="about-feat"><i class="fas fa-check-circle"></i> 50+ menu items to choose from</div>
+          <div class="about-feat"><i class="fas fa-check-circle"></i> Fast delivery across Jaranwala</div>
+          <div class="about-feat"><i class="fas fa-check-circle"></i> Open 7 days, 10 AM to 2 AM</div>
+        </div>
+        <a href="https://wa.me/923025001330" target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Chat With Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Reviews</span>
+        <h2>What Our Customers <span class="highlight">Say</span></h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Absolutely the best pizza in Jaranwala! The Malai Boti Pizza is out of this world. Delivery was super fast too."</p>
+          <div class="reviewer"><div class="reviewer-avatar">A</div><div><strong>Aisha K.</strong><span>Regular Customer</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Pizza was delicious and arrived hot. The BBQ Chicken Pizza has a great tangy flavor. Good value for money."</p>
+          <div class="reviewer"><div class="reviewer-avatar">B</div><div><strong>Bilal M.</strong><span>Verified Order</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Tried the Family Feast Combo and it was perfect for movie night. Everything was fresh and tasty. Will order again!"</p>
+          <div class="reviewer"><div class="reviewer-avatar">F</div><div><strong>Fatima &amp; Ali</strong><span>Family Order</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Great food at reasonable prices. The fries are always crispy and well-seasoned. Highly recommended!"</p>
+          <div class="reviewer"><div class="reviewer-avatar">S</div><div><strong>Sara J.</strong><span>Verified Order</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCATION ===== -->
+  <section class="location-section" id="location">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Find Us</span>
+        <h2>Our <span class="highlight">Location</span></h2>
+        <p>Come visit us or order for delivery — we cover all of Jaranwala.</p>
+      </div>
+      <div class="location-container">
+        <div class="location-info">
+          <div class="loc-card">
+            <div class="loc-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h4>Address</h4>
+              <p>Opp. Fatima Jinnah Lady Garden,<br/>Jaranwala, Punjab, Pakistan</p>
+            </div>
+          </div>
+          <div class="loc-card">
+            <div class="loc-icon"><i class="fas fa-phone-alt"></i></div>
+            <div>
+              <h4>Phone / WhatsApp</h4>
+              <p><a href="tel:+923025001330">0302-5001330</a></p>
+            </div>
+          </div>
+          <div class="loc-card">
+            <div class="loc-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <h4>Opening Hours</h4>
+              <p>Monday – Sunday<br/>10:00 AM – 2:00 AM</p>
+            </div>
+          </div>
+          <div class="loc-card">
+            <div class="loc-icon"><i class="fas fa-motorcycle"></i></div>
+            <div>
+              <h4>Delivery Area</h4>
+              <p>All areas of Jaranwala<br/>30–45 min delivery time</p>
+            </div>
+          </div>
+          <a href="https://maps.google.com/?q=Fatima+Jinnah+Lady+Garden+Jaranwala+Punjab+Pakistan" target="_blank" class="btn-primary map-btn">
+            <i class="fas fa-directions"></i> Get Directions on Google Maps
+          </a>
+        </div>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54760.0!2d73.435!3d31.336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922a5b1b1b1b1b1%3A0x0!2sJaranwala%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000"
+            width="100%" height="420" style="border:0;border-radius:16px;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Damino's Pizza Location">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Contact Us</span>
+        <h2>Get In <span class="highlight">Touch</span></h2>
+        <p>Have a question or special request? We'd love to hear from you.</p>
+      </div>
+      <div class="contact-container">
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contactForm" onsubmit="sendToWhatsApp(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" id="cName" placeholder="e.g. Shahrooz" required />
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" id="cPhone" placeholder="e.g. 03457697380" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Your Address</label>
+              <input type="text" id="cAddress" placeholder="Your delivery address" />
+            </div>
+            <div class="form-group">
+              <label>Message / Special Request</label>
+              <textarea id="cMessage" rows="4" placeholder="Any special instructions or questions..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary full-width">
+              <i class="fab fa-whatsapp"></i> Send via WhatsApp
+            </button>
+          </form>
+        </div>
+        <div class="contact-social">
+          <h3>Follow Us</h3>
+          <p>Stay updated with our latest deals and new menu items.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/share/1a859FYxnz/" target="_blank" class="social-link facebook">
+              <i class="fab fa-facebook-f"></i><span>Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/rana.taseen" target="_blank" class="social-link instagram">
+              <i class="fab fa-instagram"></i><span>Instagram</span>
+            </a>
+            <a href="https://www.tiktok.com/@daminospizzaoffical" target="_blank" class="social-link tiktok">
+              <i class="fab fa-tiktok"></i><span>TikTok</span>
+            </a>
+            <a href="https://wa.me/923025001330" target="_blank" class="social-link whatsapp">
+              <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+            </a>
+          </div>
+          <div class="contact-cta">
+            <p>Ready to order right now?</p>
+            <a href="https://wa.me/923025001330" target="_blank" class="btn-primary">
+              <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <img src="1.png" alt="Damino's Pizza Logo" class="logo-img" />
+          <div class="logo-text">
+            <span class="logo-main">Damino's</span>
+            <span class="logo-sub">PIZZA</span>
+          </div>
+        </div>
+        <p>The Best Damino's Pizza — serving hot, fresh, and delicious food to Jaranwala with love and speed.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/share/1a859FYxnz/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/rana.taseen" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@daminospizzaoffical" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/923025001330" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#deals">Deals</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Info</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Opp. Fatima Jinnah Lady Garden, Jaranwala</p>
+        <p><i class="fas fa-phone-alt"></i> <a href="tel:+923025001330">0302-5001330</a></p>
+        <p><i class="fas fa-clock"></i> Mon–Sun: 10:00 AM – 2:00 AM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 The Best Damino's Pizza. All Rights Reserved. | Developed by <a href="https://shahrooz.talkdrove.com" target="_blank">Shahrooz</a></p>
+    </div>
+  </footer>
+
+  <!-- ===== MOBILE BOTTOM NAV ===== -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav">
+    <a href="#home" class="mob-nav-item active" id="mobHome" onclick="setMobActive(this)">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#menu" class="mob-nav-item" id="mobMenu" onclick="setMobActive(this)">
+      <i class="fas fa-utensils"></i>
+      <span>Menu</span>
+    </a>
+    <a href="#deals" class="mob-nav-item" id="mobDeals" onclick="setMobActive(this)">
+      <i class="fas fa-tags"></i>
+      <span>Deals</span>
+    </a>
+    <a href="https://wa.me/923025001330" target="_blank" class="mob-nav-item mob-nav-whatsapp">
+      <div class="mob-nav-wa-bubble">
+        <i class="fab fa-whatsapp"></i>
+      </div>
+      <span>Order</span>
+    </a>
+    <button class="mob-nav-item" onclick="toggleCart(); setMobActive(this)" id="mobCart">
+      <div class="mob-nav-cart-wrap">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="mob-cart-badge" id="mobCartBadge">0</span>
+      </div>
+      <span>Cart</span>
+    </button>
+    <a href="#reviews" class="mob-nav-item" id="mobReviews" onclick="setMobActive(this)">
+      <i class="fas fa-star"></i>
+      <span>Reviews</span>
+    </a>
+    <a href="#contact" class="mob-nav-item" id="mobContact" onclick="setMobActive(this)">
+      <i class="fas fa-phone-alt"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- ===== CART SIDEBAR ===== -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-cart"></i> Your Order</h3>
+      <button onclick="toggleCart()" class="cart-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <i class="fas fa-shopping-bag"></i>
+        <p>Your cart is empty</p>
+        <a href="#menu" onclick="toggleCart()">Browse Menu</a>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span class="total-price" id="cartTotal">Rs. 0</span>
+      </div>
+      <button class="btn-primary full-width" onclick="openCheckoutModal()">
+        <i class="fab fa-whatsapp"></i> Order via WhatsApp
+      </button>
+      <button class="btn-clear" onclick="clearCart()">Clear Cart</button>
+    </div>
+  </div>
+
+  <!-- ===== CHECKOUT MODAL ===== -->
+  <div class="modal-overlay" id="checkoutOverlay" onclick="closeCheckoutModal()"></div>
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="checkout-modal-header">
+      <div class="checkout-modal-icon"><i class="fab fa-whatsapp"></i></div>
+      <div>
+        <h3>Almost There!</h3>
+        <p>Enter your details to place the order</p>
+      </div>
+      <button class="checkout-modal-close" onclick="closeCheckoutModal()"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="checkout-order-summary" id="checkoutSummary"></div>
+
+    <form class="checkout-form" id="checkoutForm" onsubmit="submitCheckout(event)">
+      <div class="checkout-form-group">
+        <label><i class="fas fa-user"></i> Full Name <span class="req">*</span></label>
+        <input type="text" id="coName" placeholder="e.g. Shahrooz" required autocomplete="name" />
+      </div>
+      <div class="checkout-form-group">
+        <label><i class="fas fa-phone-alt"></i> Phone Number <span class="req">*</span></label>
+        <input type="tel" id="coPhone" placeholder="e.g. 03194926380" required autocomplete="tel" />
+      </div>
+      <div class="checkout-form-group">
+        <label><i class="fas fa-map-marker-alt"></i> Delivery Address <span class="req">*</span></label>
+        <input type="text" id="coAddress" placeholder="Street, Area, Jaranwala" required autocomplete="street-address" />
+      </div>
+      <div class="checkout-form-group">
+        <label><i class="fas fa-comment-alt"></i> Special Instructions <span class="opt">(optional)</span></label>
+        <textarea id="coNote" rows="2" placeholder="Extra spicy, no onions, etc..."></textarea>
+      </div>
+      <div class="checkout-total-row">
+        <span>Order Total</span>
+        <span class="checkout-total-price" id="checkoutTotal">Rs. 0</span>
+      </div>
+      <button type="submit" class="checkout-submit-btn">
+        <i class="fab fa-whatsapp"></i> Confirm &amp; Send Order on WhatsApp
+      </button>
+    </form>
+  </div>
+
+  <!-- ===== SIZE PICKER MODAL ===== -->
+  <div class="size-picker-overlay" id="sizePickerOverlay" onclick="closeSizePicker()"></div>
+  <div class="size-picker-modal" id="sizePickerModal">
+    <div class="size-picker-header">
+      <img id="sizePickerImg" src="" alt="" class="size-picker-thumb" />
+      <div class="size-picker-title-wrap">
+        <h3 id="sizePickerName"></h3>
+        <p>Select your pizza size</p>
+      </div>
+      <button class="size-picker-close" onclick="closeSizePicker()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="size-picker-options" id="sizePickerOptions"></div>
+    <button class="size-picker-add-btn" id="sizePickerAddBtn" onclick="confirmSizePicker()">
+      <i class="fas fa-cart-plus"></i> Add to Cart
+    </button>
+  </div>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="https://wa.me/923025001330" target="_blank" class="whatsapp-float" title="Order on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ===== PWA INSTALL BANNER ===== -->
+  <div class="pwa-banner" id="pwaBanner">
+    <div class="pwa-banner-left">
+      <img src="1.png" alt="Damino's Pizza" class="pwa-banner-icon" />
+      <div class="pwa-banner-text">
+        <strong>Add to Home Screen</strong>
+        <span>Get the app — fast ordering, offline access!</span>
+      </div>
+    </div>
+    <div class="pwa-banner-actions">
+      <button class="pwa-install-btn" id="pwaInstallBtn"><i class="fas fa-download"></i> Install</button>
+      <button class="pwa-dismiss-btn" id="pwaDismissBtn"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
