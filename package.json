@@ -2,9 +2,8 @@
   "name": "daminos-pizza-jaranwala",
   "version": "1.0.0",
   "description": "Premium ordering portal for The Best Damino's Pizza - Jaranwala",
-  "main": "server.js",
+  "main": "api/index.js",
   "scripts": {
-    "init-server": "npm install express",
     "start": "node api/index.js"
   },
   "dependencies": {
