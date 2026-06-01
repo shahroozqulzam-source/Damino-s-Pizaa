@@ -31,7 +31,7 @@ function applyConfig() {
   document.querySelectorAll('.dynamic-whatsapp-link').forEach(el => {
     el.href = waUrl;
   });
-
+  
   document.querySelectorAll('.dynamic-phone-link').forEach(el => {
     el.href = `tel:+${shopInfo.whatsapp}`;
   });
@@ -73,10 +73,10 @@ function applyConfig() {
 // Base price on each pizza item = Medium price.
 // Extra cost added on top of the medium (base) price.
 const pizzaSizes = [
-  { key: 'medium', label: 'Medium', inch: '10"', extra: 0 },
-  { key: 'large', label: 'Large', inch: '12"', extra: 350 },
-  { key: 'xl', label: 'XL', inch: '14"', extra: 1100 },
-  { key: 'familyxl', label: 'Family XL', inch: '16"', extra: 1200 },
+  { key: 'medium',    label: 'Medium',    inch: '10"', extra: 0    },
+  { key: 'large',     label: 'Large',     inch: '12"', extra: 350  },
+  { key: 'xl',        label: 'XL',        inch: '14"', extra: 1100 },
+  { key: 'familyxl',  label: 'Family XL', inch: '16"', extra: 1200 },
 ];
 
 // ===== CART STATE =====
@@ -135,7 +135,7 @@ function renderDeals() {
         <div class="deal-card-desc">${deal.desc}</div>
         <div class="deal-card-footer">
           <span class="deal-price">Rs. ${deal.price.toLocaleString()}</span>
-          <button class="deal-add-btn" onclick="addDealToCart('${deal.id}','${deal.name.replace(/'/g, "\\'")}',${deal.price},'${deal.img}')">
+          <button class="deal-add-btn" onclick="addDealToCart('${deal.id}','${deal.name.replace(/'/g,"\\'")}',${deal.price},'${deal.img}')">
             <i class="fas fa-plus"></i> Add Deal
           </button>
         </div>
@@ -166,7 +166,7 @@ function openSizePicker(id) {
   optionsEl.innerHTML = pizzaSizes.map(s => `
     <div class="size-option" data-size="${s.key}" onclick="selectSize('${s.key}', ${item.price + s.extra})">
       <div class="size-option-icon">
-        <i class="fas fa-pizza-slice" style="font-size:${s.key === 'small' ? '1rem' : s.key === 'medium' ? '1.3rem' : s.key === 'large' ? '1.6rem' : '2rem'}"></i>
+        <i class="fas fa-pizza-slice" style="font-size:${s.key==='small'?'1rem':s.key==='medium'?'1.3rem':s.key==='large'?'1.6rem':'2rem'}"></i>
       </div>
       <div class="size-option-info">
         <span class="size-option-label">${s.label}</span>
@@ -207,12 +207,12 @@ function closeSizePicker() {
 function confirmSizePicker() {
   const addBtn = document.getElementById('sizePickerAddBtn');
   const sizeKey = addBtn.dataset.size;
-  const price = parseInt(addBtn.dataset.price);
-  const item = menuItems.find(i => i.id === _sizePickerItemId);
+  const price   = parseInt(addBtn.dataset.price);
+  const item    = menuItems.find(i => i.id === _sizePickerItemId);
   if (!item) return;
 
   const sizeLabel = pizzaSizes.find(s => s.key === sizeKey).label;
-  const sizeInch = pizzaSizes.find(s => s.key === sizeKey).inch;
+  const sizeInch  = pizzaSizes.find(s => s.key === sizeKey).inch;
   // unique cart id per pizza+size combo
   const cartId = `${item.id}_${sizeKey}`;
 
@@ -293,8 +293,8 @@ function updateCart() {
     mobBadge.style.display = count > 0 ? 'flex' : 'none';
   }
 
-  const itemsEl = document.getElementById('cartItems');
-  const emptyEl = document.getElementById('cartEmpty');
+  const itemsEl  = document.getElementById('cartItems');
+  const emptyEl  = document.getElementById('cartEmpty');
   const footerEl = document.getElementById('cartFooter');
 
   if (cart.length === 0) {
@@ -364,14 +364,14 @@ function closeCheckoutModal() {
 function submitCheckout(e) {
   e.preventDefault();
 
-  const name = document.getElementById('coName').value.trim();
-  const phone = document.getElementById('coPhone').value.trim();
+  const name    = document.getElementById('coName').value.trim();
+  const phone   = document.getElementById('coPhone').value.trim();
   const address = document.getElementById('coAddress').value.trim();
-  const note = document.getElementById('coNote').value.trim();
+  const note    = document.getElementById('coNote').value.trim();
 
   // Highlight empty required fields
   let valid = true;
-  ['coName', 'coPhone', 'coAddress'].forEach(id => {
+  ['coName','coPhone','coAddress'].forEach(id => {
     const el = document.getElementById(id);
     if (!el.value.trim()) { el.classList.add('error'); valid = false; }
     else el.classList.remove('error');
@@ -423,7 +423,7 @@ function toggleMenu() {
 window.addEventListener('scroll', () => {
   const navbar = document.getElementById('navbar');
   navbar.classList.toggle('scrolled', window.scrollY > 60);
-  const sections = ['home', 'menu', 'deals', 'about', 'location', 'contact'];
+  const sections = ['home','menu','deals','about','location','contact'];
   let current = '';
   sections.forEach(id => {
     const el = document.getElementById(id);
@@ -444,8 +444,8 @@ document.querySelectorAll('.nav-link').forEach(link => {
 // ===== CONTACT → WHATSAPP =====
 function sendToWhatsApp(e) {
   e.preventDefault();
-  const name = document.getElementById('cName').value.trim();
-  const phone = document.getElementById('cPhone').value.trim();
+  const name    = document.getElementById('cName').value.trim();
+  const phone   = document.getElementById('cPhone').value.trim();
   const address = document.getElementById('cAddress').value.trim();
   const message = document.getElementById('cMessage').value.trim();
   let msg = `👋 *Hello Damino's Pizza Jaranwala!*\n\n`;
@@ -586,9 +586,9 @@ function setMobActive(el) {
 window.addEventListener('scroll', () => {
   if (window.innerWidth > 768) return;
   const sections = [
-    { id: 'home', el: document.getElementById('mobHome') },
-    { id: 'menu', el: document.getElementById('mobMenu') },
-    { id: 'deals', el: document.getElementById('mobDeals') },
+    { id: 'home',    el: document.getElementById('mobHome') },
+    { id: 'menu',    el: document.getElementById('mobMenu') },
+    { id: 'deals',   el: document.getElementById('mobDeals') },
     { id: 'reviews', el: document.getElementById('mobReviews') },
     { id: 'contact', el: document.getElementById('mobContact') },
   ];
@@ -605,21 +605,12 @@ window.addEventListener('scroll', () => {
 // ===== PWA — Service Worker + Install Banner =====
 let deferredPrompt = null;
 
-// Unregister any existing service workers and clear caches
+// Register service worker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then(registrations => {
-    for (let registration of registrations) {
-      registration.unregister().then(() => {
-        console.log('Service Worker unregistered');
-      });
-    }
-  });
-}
-if ('caches' in window) {
-  caches.keys().then(names => {
-    for (let name of names) {
-      caches.delete(name);
-    }
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('SW registered:', reg.scope))
+      .catch(err => console.log('SW error:', err));
   });
 }
 
@@ -639,9 +630,9 @@ window.addEventListener('beforeinstallprompt', e => {
 
 // Install button clicked
 document.addEventListener('DOMContentLoaded', () => {
-  const installBtn = document.getElementById('pwaInstallBtn');
-  const dismissBtn = document.getElementById('pwaDismissBtn');
-  const banner = document.getElementById('pwaBanner');
+  const installBtn  = document.getElementById('pwaInstallBtn');
+  const dismissBtn  = document.getElementById('pwaDismissBtn');
+  const banner      = document.getElementById('pwaBanner');
 
   if (installBtn) {
     installBtn.addEventListener('click', async () => {
