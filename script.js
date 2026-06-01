@@ -19,46 +19,9 @@ let shopInfo = {
 };
 
 async function loadConfig() {
-  // Version check — clear old localStorage cache when menu-data.js is updated
-  const DATA_VERSION = '2.2';
-  if (localStorage.getItem('menu_data_version') !== DATA_VERSION) {
-    localStorage.removeItem('admin_menuItems');
-    localStorage.removeItem('admin_dealsData');
-    localStorage.removeItem('admin_shopInfo');
-    localStorage.setItem('menu_data_version', DATA_VERSION);
-    console.log('Cache cleared — loading fresh data from menu-data.js');
-  }
-
-  // Load drafts from localStorage (for instant updates during local testing)
-  const cachedMenu = localStorage.getItem("admin_menuItems");
-  const cachedDeals = localStorage.getItem("admin_dealsData");
-  const cachedShop = localStorage.getItem("admin_shopInfo");
-
-  if (cachedMenu && cachedDeals && cachedShop) {
-    try {
-      menuItems = JSON.parse(cachedMenu);
-      dealsData = JSON.parse(cachedDeals);
-      shopInfo = JSON.parse(cachedShop);
-      console.log('Loaded draft configurations from local browser storage');
-    } catch (e) {
-      console.error('Failed to parse cached configuration draft:', e);
-    }
-  }
-
-  // Load from dynamic config file
-  try {
-    const response = await fetch('data.json?v=' + Date.now());
-    if (response.ok) {
-      const data = await response.json();
-      if (data.menuItems) menuItems = data.menuItems;
-      if (data.dealsData) dealsData = data.dealsData;
-      if (data.shopInfo) shopInfo = data.shopInfo;
-      console.log('Successfully loaded configurations from data.json');
-    } else {
-      throw new Error('Failed to load data.json');
-    }
-  } catch (err) {
-    console.warn('Could not load data.json, using draft/fallback configuration:', err);
+  // Load configurations directly from the static frontend files (menu-data.js)
+  if (typeof defaultShopInfo !== 'undefined') {
+    shopInfo = { ...defaultShopInfo };
   }
   applyConfig();
 }
