@@ -126,7 +126,7 @@ function renderDeals() {
     <div class="deal-card fade-in">
       <div class="deal-card-img-wrap">
         <img src="${deal.img}" alt="${deal.name}" class="deal-card-img" loading="lazy"
-          onerror="this.src="" />
+          onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80'" />
         <span class="deal-tag">${deal.tag}</span>
         <span class="deal-number-badge">${deal.dealNo}</span>
       </div>
