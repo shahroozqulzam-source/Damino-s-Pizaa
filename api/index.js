@@ -194,44 +194,6 @@ app.post('/api/save', async (req, res) => {
   }
 });
 
-// Ensure uploads folder exists in public/
-const uploadsDir = path.join(__dirname, '../public/uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir);
-}
-
-// Upload API endpoint (Base64 file receiver)
-app.post('/api/upload', (req, res) => {
-  const { filename, fileData } = req.body;
-  if (!filename || !fileData) {
-    return res.status(400).json({ success: false, error: 'Missing filename or fileData.' });
-  }
-
-  // Extract base64 content
-  const matches = fileData.match(/^data:image\/([A-Za-z-+\/]+);base64,(.+)$/);
-  if (!matches || matches.length !== 3) {
-    return res.status(400).json({ success: false, error: 'Invalid base64 image data.' });
-  }
-
-  const extension = matches[1];
-  const base64Data = matches[2];
-  const buffer = Buffer.from(base64Data, 'base64');
-
-  // Create unique filename using timestamp
-  const safeFilename = `${Date.now()}_${filename.replace(/[^a-zA-Z0-9.\-_]/g, '_')}`;
-  const filePath = path.join(uploadsDir, safeFilename);
-
-  fs.writeFile(filePath, buffer, (err) => {
-    if (err) {
-      console.error('Error saving uploaded file:', err);
-      return res.status(500).json({ success: false, error: 'Failed to save uploaded file.' });
-    }
-
-    const relativeUrl = `uploads/${safeFilename}`;
-    console.log(`Saved uploaded image to: ${relativeUrl}`);
-    res.json({ success: true, url: relativeUrl });
-  });
-});
 
 // Fallback to index.html for undefined routes
 app.get('*', (req, res) => {
