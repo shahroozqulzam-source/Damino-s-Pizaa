@@ -177,7 +177,7 @@ function openSizePicker(id) {
   `).join('');
 
   // default select first
-  selectSize('small', item.price);
+  selectSize('medium', item.price);
 
   document.getElementById('sizePickerOverlay').classList.add('active');
   document.getElementById('sizePickerModal').classList.add('active');
