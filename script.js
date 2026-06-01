@@ -605,12 +605,21 @@ window.addEventListener('scroll', () => {
 // ===== PWA — Service Worker + Install Banner =====
 let deferredPrompt = null;
 
-// Register service worker
+// Unregister any existing service workers and clear caches
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js')
-      .then(reg => console.log('SW registered:', reg.scope))
-      .catch(err => console.log('SW error:', err));
+  navigator.serviceWorker.getRegistrations().then(registrations => {
+    for (let registration of registrations) {
+      registration.unregister().then(() => {
+        console.log('Service Worker unregistered');
+      });
+    }
+  });
+}
+if ('caches' in window) {
+  caches.keys().then(names => {
+    for (let name of names) {
+      caches.delete(name);
+    }
   });
 }
 
