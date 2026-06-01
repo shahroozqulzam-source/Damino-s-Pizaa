@@ -1,12 +1,12 @@
-const CACHE_NAME = 'daminos-pizza-v6';
+const CACHE_NAME = 'daminos-pizza-v7';
 const ASSETS = [
   '/',
   '/index.html',
   '/style.css',
   '/script.js',
+  '/menu-data.js',
   '/1.png',
   '/manifest.json',
-  '/data.json',
   'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css'
 ];
