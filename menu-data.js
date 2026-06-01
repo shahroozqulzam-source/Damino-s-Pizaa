@@ -421,7 +421,7 @@ const defaultDealsData = [
     name: "Small Pizza + Chicken Paratha + Drink",
     price: 900,
     desc: "1 Small Pizza + 1 Chicken Paratha + 1 Reg. Drink + Dip Sauce",
-    img: "deal/1Small Pizza + 1 Chicken Paratha +1 reg 1 dip sauce .png",
+    img: "/deal/deal_7.png",
     tag: "Value"
   },
   {
@@ -430,7 +430,7 @@ const defaultDealsData = [
     name: "Large Pizza + Drink",
     price: 1600,
     desc: "1 Large Pizza + 1 Ltr. Drink",
-    img: "deal/1 Large Pizza + 1 ltr Drink.png",
+    img: "/deal/deal_12.png",
     tag: "Best Value"
   },
   {
@@ -439,7 +439,7 @@ const defaultDealsData = [
     name: "Wings + Drink + Dip",
     price: 400,
     desc: "4 Wings + 1 Reg. Drink + Dip Sauce",
-    img: "deal/4 Wings +1 reg drink + Dip sauce .png",
+    img: "/deal/deal_2.png",
     tag: "Snack"
   },
   {
@@ -448,7 +448,7 @@ const defaultDealsData = [
     name: "Zinger + Small Pizza + Dip",
     price: 900,
     desc: "1 Zinger Burger + 1 Small Pizza + Dip Sauce",
-    img: "deal/1 Zinger burger + 1 small pizza + 1 dip sauce.png",
+    img: "/deal/deal_8.png",
     tag: "🔥 Hot"
   },
   {
@@ -457,7 +457,7 @@ const defaultDealsData = [
     name: "8 Pcs Wings + Drink + Dip",
     price: 700,
     desc: "8 Pcs Wings + 1 Reg. Drink + Dip Sauce",
-    img: "deal/8 Pcs Wings + 1 reg Drink + Dip sauce.png",
+    img: "/deal/deal_6.png",
     tag: "Wings"
   },
   {
@@ -466,7 +466,7 @@ const defaultDealsData = [
     name: "2 Small Pizza + 2 Drinks",
     price: 1100,
     desc: "2 Small Pizza + 2 Reg. Drinks",
-    img: "deal/— 2 Small Pizza + 2 reg Drinks .png",
+    img: "/deal/deal_14.png",
     tag: "Couple"
   },
   {
@@ -475,7 +475,7 @@ const defaultDealsData = [
     name: "Medium Pizza + Paratha + Drink",
     price: 1700,
     desc: "1 Medium Pizza + 1 Paratha Roll + 1 Ltr. Drink",
-    img: "deal/1 Medium Pizza + 1 Paratha roll + 1 ltr Drink.jpeg",
+    img: "/deal/deal_9.jpeg",
     tag: "Combo"
   },
   {
@@ -484,7 +484,7 @@ const defaultDealsData = [
     name: "Zinger + Drink + Dip",
     price: 499,
     desc: "1 Zinger Burger + 1 Reg. Drink + Dip Sauce",
-    img: "deal/1 Zinger burger + 1 reg Drink + Dip sauce.jpg",
+    img: "/deal/deal_5.jpg",
     tag: "Burger"
   },
   {
@@ -493,7 +493,7 @@ const defaultDealsData = [
     name: "Paratha Roll + Wings + Small Pizza",
     price: 1100,
     desc: "1 Paratha Roll + 5 Wings + 1 Small Pizza",
-    img: "deal/1 Paratha Roll + 5 Wings +1 Small Pizza.jpg",
+    img: "/deal/deal_13.jpg",
     tag: "Family"
   },
   {
@@ -502,7 +502,7 @@ const defaultDealsData = [
     name: "Large Pizza + Wings + Drink",
     price: 1999,
     desc: "1 Large Pizza + 8 Wings + 1.5 Ltr. Drink",
-    img: "deal/1 Large Pizza + 8 Wings + 1.5 ltr Drink.jpg",
+    img: "/deal/deal_10.jpg",
     tag: "🔥 Hot"
   },
   {
@@ -511,7 +511,7 @@ const defaultDealsData = [
     name: "2 Zinger + 2 Chicken Burger + Drink",
     price: 1299,
     desc: "2 Zinger Burger + 2 Chicken Burger + 1 Ltr. Drink",
-    img: "deal/2 Zinger + 2 Chicken Burger + 1 ltr Drink .jpg",
+    img: "/deal/deal_11.jpg",
     tag: "Burger"
   },
   {
@@ -520,7 +520,7 @@ const defaultDealsData = [
     name: "Wings + Nuggets + Medium Pizza",
     price: 1650,
     desc: "5 Wings + 5 Nuggets + 1 Medium Pizza",
-    img: "deal/5 Wings + 5 Nuggets +1 Medium Pizza .jpg",
+    img: "/deal/deal_16.jpg",
     tag: "Combo"
   },
   {
@@ -529,7 +529,7 @@ const defaultDealsData = [
     name: "Medium Pizza + Drink",
     price: 1299,
     desc: "1 Medium Pizza + 1 Ltr. Drink",
-    img: "deal/1 Medium Pizza + 1 ltr Drink .jpg",
+    img: "/deal/deal_115.jpg",
     tag: "⭐ Special"
   },
   {
@@ -538,7 +538,7 @@ const defaultDealsData = [
     name: "5 Zinger Burger + Drink",
     price: 1999,
     desc: "5 Zinger Burger + 1 Ltr. Drink",
-    img: "deal/5 Zinger Burger + 1 ltr Drink.jpg",
+    img: "/deal/deal_114.jpg",
     tag: "⭐ Special"
   },
   {
@@ -547,7 +547,7 @@ const defaultDealsData = [
     name: "2 Extra Large Pizza + Drink",
     price: 4300,
     desc: "2 Extra Large Pizza + 1.5 Ltr. Drink",
-    img: "deal/2 Extra Large Pizza + 1.5 ltr Drink .jpg",
+    img: "/deal/deal_51.jpg",
     tag: "🎉 Mega"
   },
   {
@@ -556,7 +556,7 @@ const defaultDealsData = [
     name: "Medium Pizza + Small Pizza",
     price: 1500,
     desc: "1 Medium Pizza + 1 Small Pizza",
-    img: "deal/1 Medium Pizza + 1 Small Pizza .jpg",
+    img: "/deal/deal_52.jpg",
     tag: "Family"
   },
   {
@@ -565,7 +565,7 @@ const defaultDealsData = [
     name: "2 Large Pizza + Drink",
     price: 2900,
     desc: "2 Large Pizza + 1.5 Ltr. Drink",
-    img: "deal/2 Large Pizza + 1.5 ltr Drink.jpg",
+    img: "/deal/deal_53.jpg",
     tag: "Family"
   },
   {
@@ -574,7 +574,7 @@ const defaultDealsData = [
     name: "2 Medium Pizza + Drink",
     price: 1999,
     desc: "2 Medium Pizza + 1 Ltr. Drink",
-    img: "deal/2 Medium Pizza + 1 ltr Drink .jpg",
+    img: "/deal/deal_54.jpg",
     tag: "Couple"
   },
   {
@@ -583,7 +583,7 @@ const defaultDealsData = [
     name: "Wings + Zinger Burgers + Drink",
     price: 2460,
     desc: "5 Chicken Wings + 3 Zinger Burger + 1.5 Ltr. Drink",
-    img: "deal/5 Chicken Wings + 3 zinger burger + 1.5 ltr Drink .jpg",
+    img: "/deal/promo_deal_1.jpg",
     tag: "🔥 Promo"
   },
   {
@@ -592,7 +592,7 @@ const defaultDealsData = [
     name: "Large Pizza + Paratha + Drink",
     price: 2630,
     desc: "1 Large Pizza + 4 Paratha Roll + 1.5 Ltr. Drink",
-    img: "deal/1 Large Pizza + 4 Paratha roll  + 1.5 ltr Drink .jpg",
+    img: "/deal/promo_deal_2.jpg",
     tag: "🔥 Promo"
   },
   {
@@ -601,7 +601,7 @@ const defaultDealsData = [
     name: "Burgers + Paratha + Wings + Drink",
     price: 3499,
     desc: "4 Zinger Burgers + 4 Paratha Roll + 4 Chicken Wings + 1.5 Ltr. Drink",
-    img: "deal/4 zinger Burgers + 4 Paratha roll + 4 chicken wings  +1.5 ltr  Drink .jpg",
+    img: "/deal/promo_deal_3.jpg",
     tag: "🎉 Mega"
   },
   {
@@ -610,7 +610,7 @@ const defaultDealsData = [
     name: "Pizza Feast + Burger + Drink",
     price: 4700,
     desc: "1 Large Pizza + 1 Medium Pizza + 1 Small Pizza + 4 Zinger Burger + 1.5 Ltr. Drink",
-    img: "deal/1 large 1 medium 1 small Pizza + 4 zinger Burger + 1.5 ltr Drink.jpg",
+    img: "/deal/promo_deal_4.jpg",
     tag: "🎉 Mega"
   }
 ];
