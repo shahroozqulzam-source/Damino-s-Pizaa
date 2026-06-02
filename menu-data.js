@@ -140,7 +140,7 @@ const defaultMenuItems = [
     id: 24,
     name: "Pizza Burger",
     category: "burger",
-    price: 350,
+    price: 550,
     desc: "A burger that tastes like pizza — the best of both worlds.",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-4hIpZGXX4p8jrsn33CwqVKaIkM2XvU8OyA&s"
   },
@@ -194,7 +194,7 @@ const defaultMenuItems = [
     id: 40,
     name: "Mexican Sandwich",
     category: "sandwich",
-    price: 150,
+    price: 550,
     desc: "Mexican-spiced chicken sandwich with salsa and fresh veggies.",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRILhlOYaelcLqZPd0H_tHKpmXC8cGlTzMkNw&s"
   },
