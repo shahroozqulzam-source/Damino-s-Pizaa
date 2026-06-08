@@ -12,8 +12,8 @@ let shopInfo = {
   discountText: "Limited Time — 15% OFF All Orders",
   social: {
     facebook: "https://www.facebook.com/share/1a859FYxnz/",
-    instagram: "https://www.instagram.com/rana.taseen",
-    tiktok: "https://www.tiktok.com/@dpofficaljaranwala",
+    instagram: "https://www.instagram.com/thebestdaminosofficial",
+    tiktok: "https://www.tiktok.com/@thebestdaminosjaranwala",
     whatsapp: "https://wa.me/923025001330"
   }
 };
