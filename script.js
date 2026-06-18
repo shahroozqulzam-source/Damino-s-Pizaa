@@ -103,7 +103,7 @@ function renderMenu(items) {
         <div class="menu-card-desc">${item.desc}</div>
         ${item.category === 'pizza' ? `
         <div class="menu-card-sizes-preview">
-          <span>M</span><span>L</span><span>XL</span>
+          ${(item.sizes || [{key:'medium',label:'M'},{key:'large',label:'L'},{key:'xl',label:'XL'}]).map(s => `<span>${s.label.charAt(0)}</span>`).join('')}
         </div>` : ''}
         <div class="menu-card-footer">
           <span class="menu-card-price">
@@ -162,9 +162,14 @@ function openSizePicker(id) {
   document.getElementById('sizePickerName').textContent = item.name;
   document.getElementById('sizePickerImg').src = item.img;
 
+  // use per-item sizes if defined, otherwise fall back to global pizzaSizes
+  const itemSizes = item.sizes
+    ? item.sizes
+    : pizzaSizes.map(s => ({ key: s.key, label: s.label, inch: s.inch, price: item.price + s.extra }));
+
   const optionsEl = document.getElementById('sizePickerOptions');
-  optionsEl.innerHTML = pizzaSizes.map(s => `
-    <div class="size-option" data-size="${s.key}" onclick="selectSize('${s.key}', ${item.price + s.extra})">
+  optionsEl.innerHTML = itemSizes.map(s => `
+    <div class="size-option" data-size="${s.key}" onclick="selectSize('${s.key}', ${s.price})">
       <div class="size-option-icon">
         <i class="fas fa-pizza-slice" style="font-size:${s.key === 'small' ? '1rem' : s.key === 'medium' ? '1.3rem' : s.key === 'large' ? '1.6rem' : '2rem'}"></i>
       </div>
@@ -172,12 +177,12 @@ function openSizePicker(id) {
         <span class="size-option-label">${s.label}</span>
         <span class="size-option-inch">${s.inch}</span>
       </div>
-      <span class="size-option-price">Rs. ${(item.price + s.extra).toLocaleString()}</span>
+      <span class="size-option-price">Rs. ${s.price.toLocaleString()}</span>
     </div>
   `).join('');
 
-  // default select first
-  selectSize('medium', item.price);
+  // default select first available size
+  selectSize(itemSizes[0].key, itemSizes[0].price);
 
   document.getElementById('sizePickerOverlay').classList.add('active');
   document.getElementById('sizePickerModal').classList.add('active');
@@ -211,8 +216,13 @@ function confirmSizePicker() {
   const item = menuItems.find(i => i.id === _sizePickerItemId);
   if (!item) return;
 
-  const sizeLabel = pizzaSizes.find(s => s.key === sizeKey).label;
-  const sizeInch = pizzaSizes.find(s => s.key === sizeKey).inch;
+  const itemSizes = item.sizes
+    ? item.sizes
+    : pizzaSizes.map(s => ({ key: s.key, label: s.label, inch: s.inch, price: item.price + s.extra }));
+
+  const sizeObj = itemSizes.find(s => s.key === sizeKey) || itemSizes[0];
+  const sizeLabel = sizeObj.label;
+  const sizeInch  = sizeObj.inch;
   // unique cart id per pizza+size combo
   const cartId = `${item.id}_${sizeKey}`;
 
