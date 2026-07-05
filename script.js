@@ -196,7 +196,15 @@ function selectSize(sizeKey, price) {
   const addBtn = document.getElementById('sizePickerAddBtn');
   addBtn.dataset.size = sizeKey;
   addBtn.dataset.price = price;
-  const sizeLabel = pizzaSizes.find(s => s.key === sizeKey).label;
+
+  // Look in the current item's sizes first, then fall back to global pizzaSizes
+  const currentItem = menuItems.find(i => i.id === _sizePickerItemId);
+  const itemSizes = currentItem && currentItem.sizes
+    ? currentItem.sizes
+    : pizzaSizes.map(s => ({ key: s.key, label: s.label }));
+  const sizeObj = itemSizes.find(s => s.key === sizeKey) || pizzaSizes.find(s => s.key === sizeKey);
+  const sizeLabel = sizeObj ? sizeObj.label : sizeKey;
+
   addBtn.innerHTML = `<i class="fas fa-cart-plus"></i> Add ${sizeLabel} — Rs. ${Number(price).toLocaleString()}`;
 }
 

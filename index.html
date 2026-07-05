@@ -54,6 +54,7 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
         <li><a href="#menu" class="nav-link">Menu</a></li>
         <li><a href="#deals" class="nav-link">Deals</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#media" class="nav-link">Media</a></li>
         <li><a href="#location" class="nav-link">Location</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
@@ -140,6 +141,7 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
       <div class="menu-tabs" id="menuTabs">
         <button class="tab-btn active" onclick="filterMenu('all', this)">All</button>
         <button class="tab-btn" onclick="filterMenu('pizza', this)">🍕 Pizza</button>
+        <button class="tab-btn" onclick="filterMenu('chinese', this)">🍜 Chinese</button>
         <button class="tab-btn" onclick="filterMenu('burger', this)">🍔 Burgers</button>
         <button class="tab-btn" onclick="filterMenu('wings', this)">🍗 Wings &amp; Nuggets</button>
         <button class="tab-btn" onclick="filterMenu('paratha', this)">🫓 Paratha</button>
@@ -150,7 +152,7 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
         <button class="tab-btn" onclick="filterMenu('drinks', this)">🥤 Drinks</button>
         <button class="tab-btn" onclick="filterMenu('shake', this)">🥤 Shakes</button>
         <button class="tab-btn" onclick="filterMenu('icecream', this)">🍦 Ice Cream</button>
-        <button class="tab-btn" onclick="filterMenu('chinese', this)">🍜 Chinese</button>
+
       </div>
       <div class="menu-grid" id="menuGrid"></div>
     </div>
@@ -197,6 +199,36 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
     </div>
   </section>
 
+  <!-- ===== MEDIA ===== -->
+  <section class="media-section" id="media">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Media</span>
+        <h2>Watch Us on <span class="highlight">TikTok</span></h2>
+        <p>See our food in action — fresh pizzas, sizzling deals, and behind-the-scenes moments.</p>
+      </div>
+      <div class="media-tiktok-grid">
+        <div class="media-tiktok-embed">
+          <iframe src="https://www.tiktok.com/embed/v2/7658270874599951633" allowfullscreen allow="autoplay; encrypted-media" title="Damino's Pizza TikTok Video 1" loading="lazy"></iframe>
+        </div>
+        <div class="media-tiktok-embed">
+          <iframe src="https://www.tiktok.com/embed/v2/7657189009013509396" allowfullscreen allow="autoplay; encrypted-media" title="Damino's Pizza TikTok Video 2" loading="lazy"></iframe>
+        </div>
+        <div class="media-tiktok-embed">
+          <iframe src="https://www.tiktok.com/embed/v2/7634829459631262977" allowfullscreen allow="autoplay; encrypted-media" title="Damino's Pizza TikTok Video 3" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="media-tiktok-actions">
+        <a href="https://www.tiktok.com/@thebestdaminosjaranwala" target="_blank" class="media-tiktok-profile-btn">
+          <i class="fab fa-tiktok"></i> View Full TikTok Profile
+        </a>
+        <a href="https://www.youtube.com/@TheBestdaminospizza" target="_blank" class="media-tiktok-profile-btn media-yt-btn">
+          <i class="fab fa-youtube"></i> YouTube Channel
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== REVIEWS ===== -->
   <section class="reviews-section" id="reviews">
     <div class="container">
@@ -207,23 +239,43 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
       <div class="reviews-grid">
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Absolutely the best pizza in Jaranwala! The Malai Boti Pizza is out of this world. Delivery was super fast too."</p>
-          <div class="reviewer"><div class="reviewer-avatar">A</div><div><strong>Tasneem </strong><span>Regular Customer</span></div></div>
-        </div>
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
           <p>"Pizza was delicious and arrived hot. The BBQ Chicken Pizza has a great tangy flavor. Good value for money."</p>
-          <div class="reviewer"><div class="reviewer-avatar">B</div><div><strong>Shahrooz Qulzam</strong><span>Verified Order</span></div></div>
+          <div class="reviewer"><div class="reviewer-avatar">S</div><div><strong>Shahrooz Qulzam</strong><span>Verified Order</span></div></div>
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Tried the Family Feast Combo and it was perfect for movie night. Everything was fresh and tasty. Will order again!"</p>
-          <div class="reviewer"><div class="reviewer-avatar">F</div><div><strong>Tayyab &amp; Fatima Riaz</strong><span>Family Order</span></div></div>
+          <p>"Zinger Burger ekdum crispy tha aur delivery bhi bahut jaldi aayi. Puri family ne enjoy kiya. Dobara zaroor order karein ge!"</p>
+          <div class="reviewer"><div class="reviewer-avatar">A</div><div><strong>Ali Raza</strong><span>Regular Customer</span></div></div>
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Great food at reasonable prices. The fries are always crispy and well-seasoned. Highly recommended!"</p>
-          <div class="reviewer"><div class="reviewer-avatar">S</div><div><strong>Suzain Khan</strong><span>Verified Order</span></div></div>
+          <p>"Malai Boti Pizza try ki pehli baar — ab toh yahi order hoti hai har baar. Taste bilkul unique hai, kahi aur nahi milta aisa!"</p>
+          <div class="reviewer"><div class="reviewer-avatar">U</div><div><strong>Usman Tariq</strong><span>Verified Order</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Family Deal order ki thi, sab kuch fresh tha aur quantity bhi bohot achi thi. Fries crispy aur wings ekdum perfect. Recommended!"</p>
+          <div class="reviewer"><div class="reviewer-avatar">H</div><div><strong>Hina Malik</strong><span>Family Order</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Chomian aur Manchorian dono try kiye — dono kamaal ke the. Jaranwala mein Chinese itna acha pehle nahi mila tha. Great work!"</p>
+          <div class="reviewer"><div class="reviewer-avatar">B</div><div><strong>Bilal Ahmed</strong><span>Verified Order</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Mango Shake aur Zinger Paratha ka combination mind blowing tha. Price bhi reasonable hai. Ab toh weekly order lagte hain!"</p>
+          <div class="reviewer"><div class="reviewer-avatar">S</div><div><strong>Sana Ijaz</strong><span>Regular Customer</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"WhatsApp pe order karna bohot easy hai. 35 minute mein ghar aa gaya sab kuch. Pizza garam tha aur packaging bhi clean thi!"</p>
+          <div class="reviewer"><div class="reviewer-avatar">K</div><div><strong>Kamran Hussain</strong><span>Verified Order</span></div></div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Crown Crust Pizza pehli baar yahan se li — bohot impressed hua. Cheese stuffed crust aur topping ka balance bilkul sahi tha!"</p>
+          <div class="reviewer"><div class="reviewer-avatar">Z</div><div><strong>Zara Noor</strong><span>Verified Order</span></div></div>
         </div>
       </div>
     </div>
@@ -329,6 +381,9 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
             <a href="https://www.tiktok.com/@thebestdaminosjaranwala" target="_blank" class="social-link tiktok dynamic-social-tiktok">
               <i class="fab fa-tiktok"></i><span>TikTok</span>
             </a>
+            <a href="https://www.youtube.com/@TheBestdaminospizza" target="_blank" class="social-link youtube">
+              <i class="fab fa-youtube"></i><span>YouTube</span>
+            </a>
             <a href="https://wa.me/923025001330" target="_blank" class="social-link whatsapp dynamic-social-whatsapp dynamic-whatsapp-link">
               <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
             </a>
@@ -360,6 +415,7 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
           <a href="https://www.facebook.com/share/1a859FYxnz/" target="_blank" class="dynamic-social-facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://www.instagram.com/thebestdaminosofficial" target="_blank" class="dynamic-social-instagram"><i class="fab fa-instagram"></i></a>
           <a href="https://www.tiktok.com/@thebestdaminosjaranwala" target="_blank" class="dynamic-social-tiktok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.youtube.com/@TheBestdaminospizza" target="_blank"><i class="fab fa-youtube"></i></a>
           <a href="https://wa.me/923025001330" target="_blank" class="dynamic-social-whatsapp dynamic-whatsapp-link"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>

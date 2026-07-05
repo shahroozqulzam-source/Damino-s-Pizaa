@@ -17,6 +17,14 @@ const defaultShopInfo = {
 const defaultMenuItems = [
   // ===== PIZZAS =====
   // sizes array: { key, label, inch, price }  — only available sizes listed per pizza
+  { id: 12, name: "1 Meter Pizza Laser",    category: "pizza", price: 2999, badge: "🎉 Mega",        desc: "Rs.2999",
+    sizes: [ {key:"large",label:"1 Meter",inch:'1 Meter',price:2999} ],
+    img: "1 meter.png" },
+
+  { id: 3,  name: "Malai Boti Pizza",       category: "pizza", price: 1100,                          desc: "Medium Rs.1100 | Large Rs.1450 | XL Rs.2250",
+    sizes: [ {key:"medium",label:"Medium",inch:'10"',price:1100}, {key:"large",label:"Large",inch:'12"',price:1450}, {key:"xl",label:"XL",inch:'15"',price:2250} ],
+    img: "https://dha.cafeela.pk/wp-content/uploads/2021/10/malai-boti-pizza.jpg" },
+
   { id: 1,  name: "Special Pizza",          category: "pizza", price: 490,  badge: "Chef's Pick",    desc: "Small Rs.490 | Medium Rs.1100 | Large Rs.1450 | XL Rs.2250",
     sizes: [ {key:"small",label:"Small",inch:'9"',price:490}, {key:"medium",label:"Medium",inch:'10"',price:1100}, {key:"large",label:"Large",inch:'12"',price:1450}, {key:"xl",label:"XL",inch:'15"',price:2250} ],
     img: "https://recipesblob.oetker.in/assets/d8a4b00c292a43adbb9f96798e028f01/1272x764/pizza-pollo-arrostojpg.webp" },
@@ -24,10 +32,6 @@ const defaultMenuItems = [
   { id: 2,  name: "Super Supreme Pizza",    category: "pizza", price: 490,  badge: "Popular",        desc: "Small Rs.490 | Medium Rs.1100 | Large Rs.1450 | XL Rs.2150",
     sizes: [ {key:"small",label:"Small",inch:'9"',price:490}, {key:"medium",label:"Medium",inch:'10"',price:1100}, {key:"large",label:"Large",inch:'12"',price:1450}, {key:"xl",label:"XL",inch:'15"',price:2150} ],
     img: "https://pizza360.businesswala.pk/assets/uploads/36a47a51215bf36f7cc919cd42a38625.png" },
-
-  { id: 3,  name: "Malai Boti Pizza",       category: "pizza", price: 1100,                          desc: "Medium Rs.1100 | Large Rs.1450 | XL Rs.2250",
-    sizes: [ {key:"medium",label:"Medium",inch:'10"',price:1100}, {key:"large",label:"Large",inch:'12"',price:1450}, {key:"xl",label:"XL",inch:'15"',price:2250} ],
-    img: "https://www.shutterstock.com/shutterstock/photos/2266865417/display_1500/stock-photo-chicken-tikka-pizza-signature-pakistani-flavor-2266865417.jpg" },
 
   { id: 4,  name: "Crown Crust Pizza",      category: "pizza", price: 1600, badge: "Special",        desc: "Large Rs.1600 | XL Rs.2300",
     sizes: [ {key:"large",label:"Large",inch:'12"',price:1600}, {key:"xl",label:"XL",inch:'15"',price:2300} ],
@@ -60,10 +64,6 @@ const defaultMenuItems = [
   { id: 11, name: "Chef Star Pizza",        category: "pizza", price: 1700, badge: "Chef's Special", desc: "Large Rs.1700",
     sizes: [ {key:"large",label:"Large",inch:'12"',price:1700} ],
     img: "chef star.png" },
-
-  { id: 12, name: "1 Meter Pizza Laser",    category: "pizza", price: 2999, badge: "🎉 Mega",        desc: "Rs.2999",
-    sizes: [ {key:"large",label:"1 Meter",inch:'1 Meter',price:2999} ],
-    img: "1 meter.png" },
 
   { id: 13, name: "On Choice Value Pizza",  category: "pizza", price: 1850, badge: "Special",        desc: "Large Rs.1850",
     sizes: [ {key:"large",label:"Large",inch:'12"',price:1850} ],
@@ -130,29 +130,29 @@ const defaultMenuItems = [
   { id: 105, name: "Dip Sauce",           category: "sides",  price: 60,                   desc: "Special dipping sauce. Rs.60", img: "https://dinnersdishesanddesserts.com/wp-content/uploads/2018/02/Spicy-Cajun-Dipping-Sauce-2-square.jpg" },
 
   // ===== SHAKES =====
-  { id: 110, name: "Mint Margarita",   category: "shake", price: 350, badge: "Shake", desc: "Refreshing mint margarita shake. Rs.350", img: "https://www.recipetineats.com/tachyon/2021/02/Mint-Margarita_3.jpg" },
-  { id: 111, name: "Mango Shake",      category: "shake", price: 350, badge: "Shake", desc: "Thick creamy mango shake. Rs.350", img: "https://www.cookwithmanali.com/wp-content/uploads/2019/04/Mango-Milkshake-500x500.jpg" },
-  { id: 112, name: "Strawberry Shake", category: "shake", price: 350, badge: "Shake", desc: "Sweet and creamy strawberry milkshake. Rs.350", img: "https://www.allrecipes.com/thmb/3OTpBdlMNRZuaJkFBQIKIZuQ3SM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-21261-strawberry-milkshake-4x3-1-b50bbba8b5804e66aaa78748f5c8a2ed.jpg" },
-  { id: 113, name: "Ice Cream Shake",  category: "shake", price: 550, badge: "Shake", desc: "Rich ice cream blended shake. Rs.550", img: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&q=80" },
-  { id: 114, name: "Banana Shake",     category: "shake", price: 350, badge: "Shake", desc: "Creamy banana milkshake. Rs.350", img: "https://www.simplyrecipes.com/thmb/sDSMnmxEwR7z9pIxYPL0MxZcv7k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Banana-Milkshake-LEAD-3-63c4c7b17ec04ead99a9af1a61726e1e.jpg" },
-  { id: 115, name: "Apple Shake",      category: "shake", price: 350, badge: "Shake", desc: "Fresh apple blended shake. Rs.350", img: "https://images.unsplash.com/photo-1568909344668-6f14a07b56a0?w=400&q=80" },
+  { id: 110, name: "Mint Margarita",   category: "shake", price: 350, badge: "Shake", desc: "Refreshing mint margarita shake. Rs.350", img: "chinese/Mint Margrita.png" },
+  { id: 111, name: "Mango Shake",      category: "shake", price: 350, badge: "Shake", desc: "Thick creamy mango shake. Rs.350", img: "chinese/Mango Shake.png" },
+  { id: 112, name: "Strawberry Shake", category: "shake", price: 350, badge: "Shake", desc: "Sweet and creamy strawberry milkshake. Rs.350", img: "chinese/Strawberry Shake.png" },
+  { id: 113, name: "Ice Cream Shake",  category: "shake", price: 550, badge: "Shake", desc: "Rich ice cream blended shake. Rs.550", img: "chinese/ice cream Shake.png" },
+  { id: 114, name: "Banana Shake",     category: "shake", price: 350, badge: "Shake", desc: "Creamy banana milkshake. Rs.350", img: "chinese/Banana Shake.png" },
+  { id: 115, name: "Apple Shake",      category: "shake", price: 350, badge: "Shake", desc: "Fresh apple blended shake. Rs.350", img: "chinese/Apple Shake.png" },
 
   // ===== CHINESE DISHES =====
-  { id: 130, name: "Russian Salad",        category: "chinese", price: 850,  desc: "Classic creamy Russian salad. Rs.850", img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80" },
-  { id: 131, name: "Tarragon Steak",       category: "chinese", price: 1100, desc: "Tender steak with tarragon sauce. Rs.1100", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80" },
-  { id: 132, name: "Broken Steak",         category: "chinese", price: 1200, desc: "Juicy broken steak. Rs.1200", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80" },
-  { id: 133, name: "Italian Steak",        category: "chinese", price: 1200, desc: "Italian-style seasoned steak. Rs.1200", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80" },
-  { id: 134, name: "Chomian",              category: "chinese", price: 999,  desc: "Classic chow mein noodles with chicken. Rs.999", img: "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&q=80" },
-  { id: 135, name: "Manchorian",           category: "chinese", price: 999,  desc: "Spicy Manchurian chicken in tangy sauce. Rs.999", img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80" },
-  { id: 136, name: "Tender Chicken",       category: "chinese", price: 1200, desc: "Soft tender chicken in Chinese-style sauce. Rs.1200", img: "https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&q=80" },
-  { id: 137, name: "Chicken Cheese Stick", category: "chinese", price: 1200, desc: "Crispy chicken cheese sticks. Rs.1200", img: "https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&q=80" },
-  { id: 138, name: "Chicken Cotton Blue",  category: "chinese", price: 1200, desc: "Chicken Cordon Bleu — stuffed with cheese. Rs.1200", img: "https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&q=80" },
-  { id: 139, name: "Chicken Chili Dry",    category: "chinese", price: 1200, desc: "Dry chili chicken — crispy and spicy. Rs.1200", img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80" },
-  { id: 140, name: "Egg Fried Rice",       category: "chinese", price: 500,  desc: "Classic egg fried rice. Rs.500", img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&q=80" },
-  { id: 141, name: "Masala Fried Rice",    category: "chinese", price: 500,  desc: "Spiced masala fried rice. Rs.500", img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&q=80" },
-  { id: 142, name: "Sandwich Grilled",     category: "chinese", price: 550,  desc: "Grilled sandwich. Rs.550", img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&q=80" },
-  { id: 143, name: "Club Sandwich",        category: "chinese", price: 550,  desc: "Classic club sandwich. Rs.550", img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&q=80" },
-  { id: 144, name: "Chicken Sandwich",     category: "chinese", price: 550,  desc: "Grilled chicken sandwich. Rs.550", img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&q=80" }
+  { id: 130, name: "Russian Salad",        category: "chinese", price: 850,  desc: "Classic creamy Russian salad. Rs.850", img: "chinese/salad.png" },
+  { id: 131, name: "Tarragon Steak",       category: "chinese", price: 1100, desc: "Tender steak with tarragon sauce. Rs.1100", img: "chinese/taragon steak.png" },
+  { id: 132, name: "Broken Steak",         category: "chinese", price: 1200, desc: "Juicy broken steak. Rs.1200", img: "chinese/broken steak.png" },
+  { id: 133, name: "Italian Steak",        category: "chinese", price: 1200, desc: "Italian-style seasoned steak. Rs.1200", img: "chinese/italian steak.png" },
+  { id: 134, name: "Chomian",              category: "chinese", price: 999,  desc: "Classic chow mein noodles with chicken. Rs.999", img: "chinese/chomian.png" },
+  { id: 135, name: "Manchorian",           category: "chinese", price: 999,  desc: "Spicy Manchurian chicken in tangy sauce. Rs.999", img: "chinese/manchorian.png" },
+  { id: 136, name: "Tender Chicken",       category: "chinese", price: 1200, desc: "Soft tender chicken in Chinese-style sauce. Rs.1200", img: "chinese/tender chicken.png" },
+  { id: 137, name: "Chicken Cheese Stick", category: "chinese", price: 1200, desc: "Crispy chicken cheese sticks. Rs.1200", img: "chinese/chicken cheese sticks.png" },
+  { id: 138, name: "Chicken Cotton Blue",  category: "chinese", price: 1200, desc: "Chicken Cordon Bleu — stuffed with cheese. Rs.1200", img: "chinese/chicken cotton blue.png" },
+  { id: 139, name: "Chicken Chili Dry",    category: "chinese", price: 1200, desc: "Dry chili chicken — crispy and spicy. Rs.1200", img: "chinese/chicken Chilli dry.png" },
+  { id: 140, name: "Egg Fried Rice",       category: "chinese", price: 500,  desc: "Classic egg fried rice. Rs.500", img: "chinese/Egg fried rice.png" },
+  { id: 141, name: "Masala Fried Rice",    category: "chinese", price: 500,  desc: "Spiced masala fried rice. Rs.500", img: "chinese/massala fried rice.png" },
+  { id: 142, name: "Sandwich Grilled",     category: "chinese", price: 550,  desc: "Grilled sandwich. Rs.550", img: "chinese/grilled sandwich.png" },
+  { id: 143, name: "Club Sandwich",        category: "chinese", price: 550,  desc: "Classic club sandwich. Rs.550", img: "chinese/club sandwich.png" },
+  { id: 144, name: "Chicken Sandwich",     category: "chinese", price: 550,  desc: "Grilled chicken sandwich. Rs.550", img: "chinese/chicken sandwich.png" }
 ];
 
 const defaultDealsData = [

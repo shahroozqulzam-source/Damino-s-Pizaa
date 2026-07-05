@@ -421,6 +421,8 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
 .instagram:hover { background: rgba(225,48,108,0.2); border-color: #e1306c; }
 .tiktok { background: rgba(255,255,255,0.05); color: var(--white); }
 .tiktok:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+.youtube { background: rgba(255,0,0,0.1); color: #ff0000; }
+.youtube:hover { background: rgba(255,0,0,0.2); border-color: #ff0000; }
 .whatsapp { background: rgba(37,211,102,0.1); color: #25d366; }
 .whatsapp:hover { background: rgba(37,211,102,0.2); border-color: #25d366; }
 .contact-cta { background: rgba(227,28,28,0.08); border: 1px solid rgba(227,28,28,0.2); border-radius: var(--radius-sm); padding: 24px; text-align: center; }
@@ -978,4 +980,83 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
 /* On desktop — hide the banner */
 @media (min-width: 769px) {
   .pwa-banner { display: none !important; }
+}
+
+/* ===== MEDIA SECTION ===== */
+.media-section { padding: 100px 0; background: var(--black-2); }
+
+/* 3-video grid */
+.media-tiktok-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 325px);
+  gap: 28px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+.media-tiktok-embed {
+  width: 325px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.6), 0 0 0 2px rgba(255,255,255,0.06);
+}
+.media-tiktok-embed iframe {
+  width: 325px;
+  height: 740px;
+  border: none;
+  display: block;
+}
+
+/* Action buttons row */
+.media-tiktok-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.media-tiktok-profile-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--white); padding: 12px 24px; border-radius: 50px;
+  font-weight: 600; font-size: 0.9rem; transition: var(--transition);
+}
+.media-tiktok-profile-btn:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
+}
+.media-yt-btn {
+  background: rgba(255,0,0,0.1);
+  border-color: rgba(255,0,0,0.25);
+  color: #ff4444;
+}
+.media-yt-btn:hover {
+  background: rgba(255,0,0,0.2);
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .media-tiktok-grid {
+    grid-template-columns: repeat(2, 325px);
+  }
+  .media-tiktok-grid .media-tiktok-embed:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+@media (max-width: 720px) {
+  .media-tiktok-grid {
+    grid-template-columns: 1fr;
+  }
+  .media-tiktok-embed,
+  .media-tiktok-embed iframe {
+    width: 100%;
+  }
+  .media-tiktok-grid .media-tiktok-embed:last-child {
+    grid-column: auto;
+    justify-self: auto;
+  }
 }
