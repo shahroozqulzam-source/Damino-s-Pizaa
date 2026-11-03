@@ -56,7 +56,7 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#media" class="nav-link">Media</a></li>
         <li><a href="#location" class="nav-link">Location</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#contact" class="nav-link">Suggestions</a></li>
       </ul>
       <div class="nav-actions">
         <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
@@ -65,6 +65,7 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
         </button>
         <a href="https://wa.me/923025001330" target="_blank" class="order-btn dynamic-whatsapp-link">
           <i class="fab fa-whatsapp"></i> Order Now
+        
         </a>
         <button class="hamburger" id="hamburger" onclick="toggleMenu()">
           <span></span><span></span><span></span>
@@ -88,22 +89,38 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
         <a href="#menu" class="btn-primary"><i class="fas fa-utensils"></i> Explore Menu</a>
         <a href="https://wa.me/923025001330" target="_blank" class="btn-secondary dynamic-whatsapp-link"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Happy Customers</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Menu Items</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-num">30min</span><span class="stat-label">Fast Delivery</span></div>
+     
+    <div class="hero-pizza-features-row">
+      <div class="hero-image" id="heroPizzaWrap">
+        <div class="pizza-ring"></div>
+        <div class="pizza-ring ring2"></div>
+        <!-- hover label -->
+        <div class="pizza-hover-label"><i class="fas fa-sync-alt"></i> Hover to explore</div>
+        <!-- images stack, JS cycles through them -->
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700&q=90" alt="Damino's Special Pizza" class="hero-pizza-img active-pizza" id="heroPizzaImg" />
+      </div>
+
+      <!-- Features inside hero — visible only on mobile -->
+      <div class="hero-features-mobile">
+        <div class="hero-feature-item">
+          <i class="fas fa-motorcycle"></i>
+          <div><strong>Fast Delivery</strong><span>30–45 Minutes</span></div>
+        </div>
+        <div class="hero-feature-item">
+          <i class="fas fa-leaf"></i>
+          <div><strong>Fresh Ingredients</strong><span>Made Daily</span></div>
+        </div>
+        <div class="hero-feature-item">
+          <i class="fas fa-clock"></i>
+          <div><strong>Open Late</strong><span>10 AM – 2 AM</span></div>
+        </div>
+        <div class="hero-feature-item">
+          <i class="fab fa-whatsapp"></i>
+          <div><strong>Easy Ordering</strong><span>Via WhatsApp</span></div>
+        </div>
       </div>
     </div>
-    <div class="hero-image" id="heroPizzaWrap">
-      <div class="pizza-ring"></div>
-      <div class="pizza-ring ring2"></div>
-      <!-- hover label -->
-      <div class="pizza-hover-label"><i class="fas fa-sync-alt"></i> Hover to explore</div>
-      <!-- images stack, JS cycles through them -->
-      <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700&q=90" alt="Damino's Special Pizza" class="hero-pizza-img active-pizza" id="heroPizzaImg" />
-    </div>
+
     <div class="scroll-indicator">
       <span>Scroll Down</span>
       <i class="fas fa-chevron-down"></i>
@@ -427,7 +444,7 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
           <li><a href="#deals">Deals</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#location">Location</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Suggestions</a></li>
         </ul>
       </div>
       <div class="footer-contact">
@@ -469,11 +486,11 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
         <i class="fas fa-shopping-cart"></i>
         <span class="mob-cart-badge" id="mobCartBadge">0</span>
       </div>
-      <span>Orders</span>
+      <span>Confirm <br>order</span>
     </button>
     <a href="#contact" class="mob-nav-item" id="mobContact" onclick="setMobActive(this)">
       <i class="fas fa-phone-alt"></i>
-      <span>Contact</span>
+      <span>Suggestions</span>
     </a>
   </nav>
 
