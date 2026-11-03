@@ -444,6 +444,12 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
   </footer>
 
   <!-- ===== MOBILE BOTTOM NAV ===== -->
+  <!-- WhatsApp floating bubble — outside nav so it truly floats -->
+  <a href="https://wa.me/923025001330" target="_blank" class="mob-nav-whatsapp dynamic-whatsapp-link">
+    <div class="mob-nav-wa-bubble">
+      <i class="fab fa-whatsapp"></i>
+    </div>
+  </a>
   <nav class="mobile-bottom-nav" id="mobileBottomNav">
     <div class="mobile-nav-banner" id="mobile-discount-banner">🔥 15% OFF All Orders Today!</div>
     <a href="#home" class="mob-nav-item active" id="mobHome" onclick="setMobActive(this)">
@@ -458,23 +464,13 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
       <i class="fas fa-tags"></i>
       <span>Deals</span>
     </a>
-    <a href="https://wa.me/923025001330" target="_blank" class="mob-nav-item mob-nav-whatsapp dynamic-whatsapp-link">
-      <div class="mob-nav-wa-bubble">
-        <i class="fab fa-whatsapp"></i>
-      </div>
-      <span>Order</span>
-    </a>
-    <button class="mob-nav-item" onclick="toggleCart(); setMobActive(this)" id="mobCart">
+    <button class="mob-nav-item mob-nav-orders" onclick="toggleCart(); setMobActive(this)" id="mobCart">
       <div class="mob-nav-cart-wrap">
         <i class="fas fa-shopping-cart"></i>
         <span class="mob-cart-badge" id="mobCartBadge">0</span>
       </div>
-      <span>Cart</span>
+      <span>Orders</span>
     </button>
-    <a href="#reviews" class="mob-nav-item" id="mobReviews" onclick="setMobActive(this)">
-      <i class="fas fa-star"></i>
-      <span>Reviews</span>
-    </a>
     <a href="#contact" class="mob-nav-item" id="mobContact" onclick="setMobActive(this)">
       <i class="fas fa-phone-alt"></i>
       <span>Contact</span>
