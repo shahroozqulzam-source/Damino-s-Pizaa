@@ -613,6 +613,8 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
   .pizza-hover-label { display: none !important; }
   .hero-btns         { flex-direction: column; align-items: center; width: 100%; }
   .hero-btns a, .hero-btns button { width: 100%; justify-content: center; }
+  .hero-btns .btn-secondary { display: none; }
+  .hero-btns .btn-secondary.dynamic-whatsapp-link { display: none; }
   .hero-stats        { gap: 12px; flex-wrap: wrap; justify-content: center; }
   .scroll-indicator  { display: none; }
 
@@ -654,15 +656,15 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
   }
 
   .mob-nav-item {
-    display: flex; flex-direction: column; align-items: center; gap: 3px;
-    color: rgba(255,255,255,0.45); font-size: 0.52rem; font-weight: 600;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    color: rgba(255,255,255,0.45); font-size: 0.6rem; font-weight: 600;
     letter-spacing: 0.2px; text-transform: uppercase;
     background: none; border: none; font-family: var(--font);
     cursor: pointer; padding: 4px 2px; border-radius: 12px;
-    transition: color 0.25s ease; min-width: 32px;
+    transition: color 0.25s ease; min-width: 36px;
     text-decoration: none; position: relative;
   }
-  .mob-nav-item i { font-size: 1.05rem; transition: transform 0.25s ease; }
+  .mob-nav-item i { font-size: 1.2rem; transition: transform 0.25s ease; }
   .mob-nav-item:hover, .mob-nav-item.active { color: var(--red-light); }
   .mob-nav-item.active i, .mob-nav-item:hover i { transform: translateY(-3px); }
   .mob-nav-item.active span { color: var(--red-light); }
@@ -672,18 +674,33 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
     border-radius: 50%; background: var(--red-light);
   }
 
-  .mob-nav-whatsapp { color: #25d366; margin-bottom: 4px; }
-  .mob-nav-whatsapp:hover, .mob-nav-whatsapp.active { color: #25d366; }
+  .mob-nav-whatsapp {
+    position: fixed;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #25d366;
+    background: none;
+    border: none;
+    padding: 0;
+    gap: 0;
+    min-width: unset;
+  }
+  .mob-nav-whatsapp span { display: none; }
   .mob-nav-wa-bubble {
-    width: 44px; height: 44px; border-radius: 50%;
+    width: 58px; height: 58px; border-radius: 50%;
     background: linear-gradient(135deg, #25d366, #128c7e);
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 6px 24px rgba(37,211,102,0.5); margin-bottom: 2px;
+    box-shadow: 0 6px 28px rgba(37,211,102,0.6);
     transition: transform 0.25s ease;
+    animation: pulse-green 2s infinite;
   }
-  .mob-nav-whatsapp:hover .mob-nav-wa-bubble { transform: translateY(-4px) scale(1.08); }
-  .mob-nav-wa-bubble i { font-size: 1.2rem; color: #fff; transform: none !important; }
-  .mob-nav-whatsapp span { color: #25d366; }
+  .mob-nav-whatsapp:hover .mob-nav-wa-bubble { transform: scale(1.1); }
+  .mob-nav-wa-bubble i { font-size: 1.5rem; color: #fff; transform: none !important; }
 
   .mob-nav-cart-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
   .mob-cart-badge {
@@ -694,9 +711,12 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
     display: flex; align-items: center; justify-content: center;
   }
 
-  #mobReviews i, #mobReviews.active i, #mobReviews:hover i { color: var(--yellow); }
-  #mobReviews.active { color: var(--yellow); }
-  #mobReviews.active::after { background: var(--yellow); }
+  /* Orders button — bright highlight */
+  .mob-nav-orders { color: var(--yellow) !important; }
+  .mob-nav-orders i { color: var(--yellow) !important; }
+  .mob-nav-orders span { color: var(--yellow) !important; }
+  .mob-nav-orders:hover, .mob-nav-orders.active { color: #ffd700 !important; }
+  .mob-nav-orders.active::after { background: var(--yellow); }
 }
 
 /* ── Small phones ── */
@@ -706,8 +726,8 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
   .menu-grid         { grid-template-columns: 1fr; }
   .cart-sidebar      { width: 100%; right: -100%; }
   .contact-form-wrap { padding: 20px; }
-  .mob-nav-item      { min-width: 30px; font-size: 0.5rem; }
-  .mob-nav-item i    { font-size: 1rem; }
+  .mob-nav-item      { min-width: 30px; font-size: 0.56rem; }
+  .mob-nav-item i    { font-size: 1.1rem; }
   .mob-nav-wa-bubble { width: 40px; height: 40px; }
   .mob-nav-wa-bubble i { font-size: 1.1rem; }
 }
