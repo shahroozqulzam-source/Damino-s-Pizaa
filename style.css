@@ -102,7 +102,7 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
 .cart-btn:hover { background: var(--red); }
 .cart-count {
   position: absolute; top: -4px; right: -4px; background: var(--yellow);
-  color: var(--black); width: 17px; height: 17px; border-radius: 50%;
+  color: var(--black) !important; width: 17px; height: 17px; border-radius: 50%;
   font-size: 0.6rem; font-weight: 700; display: flex; align-items: center; justify-content: center;
 }
 .order-btn {
@@ -160,6 +160,10 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
 .stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.15); }
 
 /* ===== HERO IMAGE ===== */
+/* wrapper row — desktop: transparent passthrough */
+.hero-pizza-features-row {
+  display: contents; /* desktop me koi effect nahi, children directly hero grid mein */
+}
 .hero-image {
   position: relative; z-index: 2;
   display: flex; align-items: center; justify-content: center;
@@ -237,6 +241,9 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
 .feature-item div { display: flex; flex-direction: column; }
 .feature-item strong { font-size: 0.95rem; font-weight: 700; color: var(--white); }
 .feature-item span { font-size: 0.8rem; color: var(--gray); margin-top: 2px; }
+
+/* Mobile-only hero features — hidden on desktop */
+.hero-features-mobile { display: none; }
 
 /* ===== MENU SECTION ===== */
 .menu-section { padding: 100px 0; background: var(--black-2); }
@@ -436,10 +443,20 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
 .footer-social { display: flex; gap: 12px; }
 .footer-social a {
   width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.06);
-  display: flex; align-items: center; justify-content: center; color: var(--gray);
+  display: flex; align-items: center; justify-content: center;
   font-size: 0.9rem; transition: var(--transition); border: 1px solid rgba(255,255,255,0.08);
 }
-.footer-social a:hover { background: var(--red); color: var(--white); border-color: var(--red); transform: translateY(-3px); }
+.footer-social a.dynamic-social-facebook  { color: #1877f2; }
+.footer-social a.dynamic-social-instagram { color: #e1306c; }
+.footer-social a.dynamic-social-tiktok    { color: #69c9d0; }
+.footer-social a[href*="youtube"]          { color: #ff0000; }
+.footer-social a.dynamic-social-whatsapp  { color: #25d366; }
+.footer-social a:hover { color: var(--white); transform: translateY(-3px); }
+.footer-social a.dynamic-social-facebook:hover  { background: #1877f2; border-color: #1877f2; }
+.footer-social a.dynamic-social-instagram:hover { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-color: #e1306c; }
+.footer-social a.dynamic-social-tiktok:hover    { background: #010101; border-color: #69c9d0; color: #69c9d0 !important; }
+.footer-social a[href*="youtube"]:hover          { background: #ff0000; border-color: #ff0000; }
+.footer-social a.dynamic-social-whatsapp:hover  { background: #25d366; border-color: #25d366; }
 .footer-links h4, .footer-contact h4 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 20px; }
 .footer-links ul { display: flex; flex-direction: column; gap: 10px; }
 .footer-links a { color: var(--gray); font-size: 0.88rem; transition: var(--transition); }
@@ -518,8 +535,6 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
 
 /* Hidden by default — only shown inside @media (max-width: 768px) */
 .mobile-bottom-nav { display: none; }
-  50% { box-shadow: 0 8px 48px rgba(37,211,102,0.8), 0 0 0 12px rgba(37,211,102,0.1); }
-}
 
 /* ===== RESPONSIVE ===== */
 
@@ -533,6 +548,7 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
     overflow: hidden;
   }
   .hero-content { align-items: center; order: 2; width: 100%; }
+  .hero-pizza-features-row { display: contents; }
   .hero-image {
     display: flex;
     order: 1;
@@ -599,13 +615,17 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
     padding-top: 68px;
     padding-left: 16px;
     padding-right: 16px;
+    padding-bottom: 32px;
     overflow: hidden;
     width: 100%;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
   }
-  .hero-content      { width: 100%; max-width: 100%; }
+  .hero-content      { width: 100%; max-width: 100%; order: 1; }
   .hero-title        { font-size: 1.9rem; word-break: break-word; }
   .hero-desc         { font-size: 0.9rem; }
+  /* pizza + features side by side */
   .hero-image        { width: 100%; overflow: hidden; }
   .hero-pizza-img    { width: 200px; height: 200px; }
   .pizza-ring        { width: 240px; height: 240px; }
@@ -613,15 +633,50 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
   .pizza-hover-label { display: none !important; }
   .hero-btns         { flex-direction: column; align-items: center; width: 100%; }
   .hero-btns a, .hero-btns button { width: 100%; justify-content: center; }
+
+  /* pizza image + features in a 2-col row */
+  .hero-pizza-features-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    margin-top: 20px;
+    align-items: center;
+    order: 2;
+  }
+  .hero-image {
+    order: unset !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
   .hero-btns .btn-secondary { display: none; }
   .hero-btns .btn-secondary.dynamic-whatsapp-link { display: none; }
   .hero-stats        { gap: 12px; flex-wrap: wrap; justify-content: center; }
   .scroll-indicator  { display: none; }
 
   /* Layout */
-  .features-strip    { flex-direction: column; }
-  .feature-item      { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 20px 24px; }
-  .feature-item:last-child { border-bottom: none; }
+  .features-strip    { display: none; }
+  .hero-features-mobile {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    width: 100%;
+    background: var(--black-3);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(227,28,28,0.2);
+    overflow: hidden;
+    align-self: center;
+  }
+  .hero-feature-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .hero-feature-item:last-child { border-bottom: none; }
+  .hero-feature-item i { font-size: 1.3rem; color: var(--red-light); min-width: 24px; }
+  .hero-feature-item div { display: flex; flex-direction: column; }
+  .hero-feature-item strong { font-size: 0.82rem; font-weight: 700; color: var(--white); }
+  .hero-feature-item span { font-size: 0.72rem; color: var(--gray); margin-top: 1px; }
   .menu-grid         { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
   .deals-grid        { grid-template-columns: 1fr; }
   .reviews-grid      { grid-template-columns: 1fr; }
@@ -705,18 +760,19 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
   .mob-nav-cart-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
   .mob-cart-badge {
     position: absolute; top: -6px; right: -8px;
-    background: var(--yellow); color: var(--black);
+    background: var(--yellow); color: var(--black) !important;
     width: 15px; height: 15px; border-radius: 50%;
     font-size: 0.55rem; font-weight: 800;
-    display: flex; align-items: center; justify-content: center;
+    display: none; align-items: center; justify-content: center;
   }
 
   /* Orders button — bright highlight */
   .mob-nav-orders { color: var(--yellow) !important; }
   .mob-nav-orders i { color: var(--yellow) !important; }
-  .mob-nav-orders span { color: var(--yellow) !important; }
+  .mob-nav-orders > span:not(.mob-cart-badge) { color: var(--yellow) !important; }
   .mob-nav-orders:hover, .mob-nav-orders.active { color: #ffd700 !important; }
   .mob-nav-orders.active::after { background: var(--yellow); }
+  .mob-nav-orders .mob-cart-badge { color: #000000 !important; }
 }
 
 /* ── Small phones ── */
