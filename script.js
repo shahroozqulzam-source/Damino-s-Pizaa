@@ -524,53 +524,40 @@ document.addEventListener('DOMContentLoaded', async () => {
   observeFadeIns();
 });
 
-// ===== HERO PIZZA IMAGE HOVER ROTATION =====
+// ===== HERO PIZZA IMAGE HOVER ROTATION — DISABLED (using deal.png static image) =====
+/*
 const pizzaImages = [
-  "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700&q=90", // top-down classic
-  "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=90", // pepperoni slice
-  "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=700&q=90", // cheesy pull
-  "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=700&q=90", // supreme loaded
-  "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=700&q=90", // margherita
-  "https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=700&q=90", // square detroit
+  "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700&q=90",
+  "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=90",
+  "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=700&q=90",
+  "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=700&q=90",
+  "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=700&q=90",
+  "https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=700&q=90",
 ];
-
 let pizzaIndex = 0;
 let pizzaHoverInterval = null;
-
 function swapPizzaImage() {
   const img = document.getElementById('heroPizzaImg');
   if (!img) return;
-
-  // fade out
   img.classList.add('fade-swap');
-
   setTimeout(() => {
     pizzaIndex = (pizzaIndex + 1) % pizzaImages.length;
     img.src = pizzaImages[pizzaIndex];
-    img.onload = () => {
-      img.classList.remove('fade-swap');
-    };
-    // fallback in case onload doesn't fire (cached)
+    img.onload = () => { img.classList.remove('fade-swap'); };
     setTimeout(() => img.classList.remove('fade-swap'), 200);
   }, 400);
 }
-
 document.addEventListener('DOMContentLoaded', () => {
   const wrap = document.getElementById('heroPizzaWrap');
   if (!wrap) return;
-
-  // Preload all images silently
   pizzaImages.forEach(src => { const i = new Image(); i.src = src; });
-
   wrap.addEventListener('mouseenter', () => {
     swapPizzaImage();
     pizzaHoverInterval = setInterval(swapPizzaImage, 1200);
   });
-
   wrap.addEventListener('mouseleave', () => {
     clearInterval(pizzaHoverInterval);
     pizzaHoverInterval = null;
-    // smoothly return to first image
     const img = document.getElementById('heroPizzaImg');
     if (!img) return;
     img.classList.add('fade-swap');
@@ -581,8 +568,6 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => img.classList.remove('fade-swap'), 200);
     }, 400);
   });
-
-  // On mobile — auto-rotate every 3s (tap to pause)
   if (window.matchMedia('(max-width: 1024px)').matches) {
     let autoRotate = setInterval(swapPizzaImage, 3000);
     wrap.addEventListener('click', () => {
@@ -591,6 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+*/
 
 // ===== MOBILE BOTTOM NAV =====
 function setMobActive(el) {
@@ -687,4 +673,27 @@ window.addEventListener('appinstalled', () => {
   const banner = document.getElementById('pwaBanner');
   if (banner) banner.classList.remove('show');
   deferredPrompt = null;
+});
+
+
+// ===== IMAGE LIGHTBOX =====
+function openLightbox(src) {
+  const overlay = document.getElementById('imgLightbox');
+  const img = document.getElementById('lightboxImg');
+  if (!overlay || !img) return;
+  img.src = src;
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  const overlay = document.getElementById('imgLightbox');
+  if (!overlay) return;
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Close lightbox on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
 });

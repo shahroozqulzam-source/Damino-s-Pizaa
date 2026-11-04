@@ -162,28 +162,38 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
 /* ===== HERO IMAGE ===== */
 /* wrapper row — desktop: transparent passthrough */
 .hero-pizza-features-row {
-  display: contents; /* desktop me koi effect nahi, children directly hero grid mein */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 .hero-image {
   position: relative; z-index: 2;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
+  flex: 1 1 0;
+  min-width: 0;
 }
-.pizza-ring {
-  position: absolute; width: 460px; height: 460px; border-radius: 50%;
-  border: 2px dashed rgba(227,28,28,0.3); animation: spin 20s linear infinite;
+.pizza-ring, .ring2 {
+  display: none;
 }
-.ring2 { width: 350px; height: 350px; border-color: rgba(245,197,24,0.25); animation-direction: reverse; animation-duration: 15s; }
 
 .hero-pizza-img {
-  width: 380px; height: 380px; object-fit: cover;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
   object-position: center center;
-  border-radius: 50%;
+  border-radius: 20px;
   box-shadow: 0 0 80px rgba(227,28,28,0.5), 0 0 160px rgba(227,28,28,0.2), 0 0 0 8px rgba(227,28,28,0.15);
   border: 5px solid rgba(227,28,28,0.4);
   position: relative; z-index: 2;
   animation: float 4s ease-in-out infinite;
   transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.4s ease;
+  cursor: pointer;
 }
 .hero-pizza-img.fade-swap {
   opacity: 0;
@@ -244,6 +254,8 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
 
 /* Mobile-only hero features — hidden on desktop */
 .hero-features-mobile { display: none; }
+/* Second deal image — always visible */
+.hero-image-2 { display: flex; }
 
 /* ===== MENU SECTION ===== */
 .menu-section { padding: 100px 0; background: var(--black-2); }
@@ -548,18 +560,17 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
     overflow: hidden;
   }
   .hero-content { align-items: center; order: 2; width: 100%; }
-  .hero-pizza-features-row { display: contents; }
+  .hero-pizza-features-row { display: flex; flex-direction: row; gap: 16px; order: 1; justify-content: center; }
   .hero-image {
     display: flex;
-    order: 1;
-    margin-bottom: 32px;
+    margin-bottom: 0;
     margin-top: 16px;
-    width: 100%;
-    overflow: hidden;
+    flex: 1;
+    max-width: 320px;
   }
-  .hero-pizza-img { width: 240px; height: 240px; }
-  .pizza-ring { width: 280px; height: 280px; }
-  .ring2 { width: 210px; height: 210px; }
+  .hero-pizza-img { width: 100%; height: 280px; object-fit: cover; }
+  .pizza-ring { display: none; }
+  .ring2 { display: none; }
   .pizza-hover-label { display: none !important; }
   .hero-desc { margin-left: auto; margin-right: auto; max-width: 100%; }
   .hero-btns { justify-content: center; }
@@ -626,28 +637,30 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
   .hero-title        { font-size: 1.9rem; word-break: break-word; }
   .hero-desc         { font-size: 0.9rem; }
   /* pizza + features side by side */
-  .hero-image        { width: 100%; overflow: hidden; }
-  .hero-pizza-img    { width: 200px; height: 200px; }
-  .pizza-ring        { width: 240px; height: 240px; }
-  .ring2             { width: 185px; height: 185px; }
+  .hero-image        { width: 100%; }
+  .hero-pizza-img    { width: 100%; height: 160px; object-fit: cover; }
   .pizza-hover-label { display: none !important; }
   .hero-btns         { flex-direction: column; align-items: center; width: 100%; }
   .hero-btns a, .hero-btns button { width: 100%; justify-content: center; }
 
   /* pizza image + features in a 2-col row */
   .hero-pizza-features-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
     width: 100%;
     margin-top: 20px;
-    align-items: center;
+    align-items: stretch;
     order: 2;
   }
   .hero-image {
     order: unset !important;
     margin: 0 !important;
-    width: 100% !important;
+    width: 50% !important;
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
   }
   .hero-btns .btn-secondary { display: none; }
   .hero-btns .btn-secondary.dynamic-whatsapp-link { display: none; }
@@ -656,27 +669,15 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
 
   /* Layout */
   .features-strip    { display: none; }
-  .hero-features-mobile {
+  .hero-features-mobile { display: none; }
+  .hero-image-2 {
     display: flex;
-    flex-direction: column;
     order: 2;
     width: 100%;
-    background: var(--black-3);
-    border-radius: var(--radius-sm);
-    border: 1px solid rgba(227,28,28,0.2);
-    overflow: hidden;
+    align-items: center;
+    justify-content: center;
     align-self: center;
   }
-  .hero-feature-item {
-    display: flex; align-items: center; gap: 14px;
-    padding: 14px 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-  .hero-feature-item:last-child { border-bottom: none; }
-  .hero-feature-item i { font-size: 1.3rem; color: var(--red-light); min-width: 24px; }
-  .hero-feature-item div { display: flex; flex-direction: column; }
-  .hero-feature-item strong { font-size: 0.82rem; font-weight: 700; color: var(--white); }
-  .hero-feature-item span { font-size: 0.72rem; color: var(--gray); margin-top: 1px; }
   .menu-grid         { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
   .deals-grid        { grid-template-columns: 1fr; }
   .reviews-grid      { grid-template-columns: 1fr; }
@@ -1136,3 +1137,123 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font);
     justify-self: auto;
   }
 }
+
+/* ===== PAYMENT SECTION ===== */
+.payment-section {
+  padding: 80px 0;
+  background: var(--black-2);
+}
+.payment-single-card {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--black-3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 40px 48px;
+  text-align: center;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+.payment-single-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(227,28,28,0.4);
+  box-shadow: 0 12px 40px rgba(227,28,28,0.2);
+}
+.payment-logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.payment-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 14px;
+}
+.payment-divider {
+  width: 2px;
+  height: 60px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+}
+.payment-single-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.payment-number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.payment-number i { color: var(--red-light); }
+.payment-name {
+  font-size: 0.95rem;
+  color: var(--gray-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.payment-name i { color: var(--red-light); }
+
+@media (max-width: 480px) {
+  .payment-single-card { padding: 28px 20px; }
+  .payment-logo { width: 70px; height: 70px; }
+  .payment-number { font-size: 1rem; }
+}
+
+/* ===== IMAGE LIGHTBOX ===== */
+.img-lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: fadeInOverlay 0.25s ease;
+}
+.img-lightbox-overlay.active {
+  display: flex;
+}
+.img-lightbox-overlay img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 16px;
+  border: 3px solid rgba(227,28,28,0.5);
+  box-shadow: 0 0 80px rgba(227,28,28,0.4);
+  animation: zoomIn 0.25s ease;
+  cursor: default;
+  pointer-events: none;
+}
+.img-lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  background: rgba(227,28,28,0.85);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10000;
+  transition: background 0.2s;
+}
+.img-lightbox-close:hover { background: var(--red-light); }
+@keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+@keyframes zoomIn { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }

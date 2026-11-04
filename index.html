@@ -94,30 +94,13 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
       <div class="hero-image" id="heroPizzaWrap">
         <div class="pizza-ring"></div>
         <div class="pizza-ring ring2"></div>
-        <!-- hover label -->
-        <div class="pizza-hover-label"><i class="fas fa-sync-alt"></i> Hover to explore</div>
         <!-- images stack, JS cycles through them -->
-        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700&q=90" alt="Damino's Special Pizza" class="hero-pizza-img active-pizza" id="heroPizzaImg" />
+        <img src="deal.png" alt="Damino's Chinese Dishes" class="hero-pizza-img active-pizza" id="heroPizzaImg" style="border-radius: 16px; object-fit: contain;" onclick="openLightbox(this.src)" />
       </div>
 
-      <!-- Features inside hero — visible only on mobile -->
-      <div class="hero-features-mobile">
-        <div class="hero-feature-item">
-          <i class="fas fa-motorcycle"></i>
-          <div><strong>Fast Delivery</strong><span>30–45 Minutes</span></div>
-        </div>
-        <div class="hero-feature-item">
-          <i class="fas fa-leaf"></i>
-          <div><strong>Fresh Ingredients</strong><span>Made Daily</span></div>
-        </div>
-        <div class="hero-feature-item">
-          <i class="fas fa-clock"></i>
-          <div><strong>Open Late</strong><span>10 AM – 2 AM</span></div>
-        </div>
-        <div class="hero-feature-item">
-          <i class="fab fa-whatsapp"></i>
-          <div><strong>Easy Ordering</strong><span>Via WhatsApp</span></div>
-        </div>
+      <!-- Second image — visible only on mobile (replaces features box) -->
+      <div class="hero-image hero-image-2" id="heroDeal2Wrap">
+        <img src="deal1.png" alt="Damino's Pizza Deals" class="hero-pizza-img" style="border-radius: 16px; object-fit: contain;" onclick="openLightbox(this.src)" />
       </div>
     </div>
 
@@ -158,6 +141,7 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
       <div class="menu-tabs" id="menuTabs">
         <button class="tab-btn active" onclick="filterMenu('all', this)">All</button>
         <button class="tab-btn" onclick="filterMenu('pizza', this)">🍕 Pizza</button>
+        <button class="tab-btn" onclick="filterMenu('soup', this)">🍜 Soup</button>
         <button class="tab-btn" onclick="filterMenu('chinese', this)">🍜 Chinese</button>
         <button class="tab-btn" onclick="filterMenu('burger', this)">🍔 Burgers</button>
         <button class="tab-btn" onclick="filterMenu('wings', this)">🍗 Wings &amp; Nuggets</button>
@@ -346,6 +330,28 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
             width="100%" height="420" style="border:0;border-radius:16px;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade" title="Damino's Pizza Location">
           </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAYMENT ===== -->
+  <section class="payment-section" id="payment">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Payment</span>
+        <h2>Easy <span class="highlight">Payment</span> Methods</h2>
+        <p>Pay easily through Easypaisa or JazzCash — fast and secure.</p>
+      </div>
+      <div class="payment-single-card">
+        <div class="payment-logos-row">
+          <img src="easypaisa.png" alt="Easypaisa" class="payment-logo" />
+          <div class="payment-divider"></div>
+          <img src="jazzcash.png" alt="JazzCash" class="payment-logo" />
+        </div>
+        <div class="payment-single-info">
+          <p class="payment-number"><i class="fas fa-mobile-alt"></i> 0300-0983388</p>
+          <p class="payment-name"><i class="fas fa-user"></i> Rana Muhammad Taseen Safdar</p>
         </div>
       </div>
     </div>
@@ -576,6 +582,12 @@ src="https://www.facebook.com/tr?id=643566861074777&ev=PageView&noscript=1"
     <button class="size-picker-add-btn" id="sizePickerAddBtn" onclick="confirmSizePicker()">
       <i class="fas fa-cart-plus"></i> Add to Cart
     </button>
+  </div>
+
+  <!-- ===== IMAGE LIGHTBOX ===== -->
+  <div class="img-lightbox-overlay" id="imgLightbox" onclick="closeLightbox()">
+    <button class="img-lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+    <img id="lightboxImg" src="" alt="Full view" onclick="event.stopPropagation()" />
   </div>
 
   <!-- ===== WHATSAPP FLOAT ===== -->

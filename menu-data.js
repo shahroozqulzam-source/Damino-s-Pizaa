@@ -69,12 +69,21 @@ const defaultMenuItems = [
     sizes: [ {key:"large",label:"Large",inch:'12"',price:1850} ],
     img: "on choice value.png" },
 
+  // ===== SOUPS =====
+  { id: 150, name: "Damino's Soup (Single)",  category: "soup", price: 400,  badge: "Single", desc: "Damino's special soup single serving. Rs.400",    img: "damino's soup.jpg" },
+  { id: 151, name: "Corn Soup (Single)",       category: "soup", price: 400,  badge: "Single", desc: "Creamy sweet corn soup single serving. Rs.400",   img: "corn soup.jpg" },
+  { id: 152, name: "Hot & Sour Soup (Single)", category: "soup", price: 400,  badge: "Single", desc: "Classic hot and sour soup single serving. Rs.400", img: "hot and sour soup.jpg" },
+  { id: 153, name: "Damino's Soup (Family)",   category: "soup", price: 1600, badge: "Family", desc: "Damino's special soup family serving. Rs.1600",   img: "damino's soup.jpg" },
+  { id: 154, name: "Corn Soup (Family)",        category: "soup", price: 1200, badge: "Family", desc: "Creamy sweet corn soup family serving. Rs.1200",  img: "corn soup.jpg" },
+  { id: 155, name: "Hot & Sour Soup (Family)",  category: "soup", price: 1200, badge: "Family", desc: "Hot and sour soup family serving. Rs.1200",       img: "hot and sour soup.jpg" },
+
   // ===== BURGERS =====
   { id: 20, name: "Zinger Burger",        category: "burger", price: 370, badge: "Best Seller", desc: "Crispy zinger chicken fillet with fresh veggies. Rs.370", img: "https://www.eatingonadime.com/wp-content/uploads/2024/03/200KB-Zinger-Burger-8-500x375.jpg" },
   { id: 21, name: "Chicken Patty Burger", category: "burger", price: 330,                       desc: "Juicy chicken patty with fresh veggies. Rs.330", img: "https://static.toiimg.com/thumb/75675148.cms?width=573&height=430" },
   { id: 22, name: "Damino's Burger",      category: "burger", price: 600,                       desc: "Our signature burger with secret sauce. Rs.600", img: "https://static.vecteezy.com/system/resources/thumbnails/075/025/924/small/crispy-chicken-burger-with-sesame-seed-bun-and-png.png" },
   { id: 23, name: "Double Patty Burger",  category: "burger", price: 580,                       desc: "Double patty stacked high with cheese and all the fixings. Rs.580", img: "https://png.pngtree.com/png-clipart/20240310/original/pngtree-tasty-double-patty-burger-isolated-png-image_14552993.png" },
   { id: 24, name: "Pizza Burger",         category: "burger", price: 550,                       desc: "A burger that tastes like pizza — best of both worlds. Rs.550", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-4hIpZGXX4p8jrsn33CwqVKaIkM2XvU8OyA&s" },
+  { id: 25, name: "Fish Burger",          category: "burger", price: 600,                       desc: "Crispy fish fillet burger with special sauce. Rs.600", img: "chinese/fish burger.png" },
 
   // ===== SHAWARMA =====
   { id: 30, name: "Chicken Shawarma", category: "shawarma", price: 290, badge: "Best Value", desc: "Marinated chicken in soft bread with garlic sauce. Rs.290", img: "https://foxeslovelemons.com/wp-content/uploads/2023/06/Chicken-Shawarma-8.jpg" },
@@ -150,6 +159,7 @@ const defaultMenuItems = [
   { id: 139, name: "Chicken Chili Dry",    category: "chinese", price: 1200, desc: "Dry chili chicken — crispy and spicy. Rs.1200", img: "chinese/chicken Chilli dry.png" },
   { id: 140, name: "Egg Fried Rice",       category: "chinese", price: 500,  desc: "Classic egg fried rice. Rs.500", img: "chinese/Egg fried rice.png" },
   { id: 141, name: "Masala Fried Rice",    category: "chinese", price: 500,  desc: "Spiced masala fried rice. Rs.500", img: "chinese/massala fried rice.png" },
+  { id: 145, name: "Chicken Fried Rice",   category: "chinese", price: 500,  desc: "Chicken stir-fried rice. Rs.500", img: "https://www.recipetineats.com/tachyon/2021/09/Chicken-fried-rice_5.jpg" },
   { id: 142, name: "Sandwich Grilled",     category: "chinese", price: 550,  desc: "Grilled sandwich. Rs.550", img: "chinese/grilled sandwich.png" },
   { id: 143, name: "Club Sandwich",        category: "chinese", price: 550,  desc: "Classic club sandwich. Rs.550", img: "chinese/club sandwich.png" },
   { id: 144, name: "Chicken Sandwich",     category: "chinese", price: 550,  desc: "Grilled chicken sandwich. Rs.550", img: "chinese/chicken sandwich.png" }
