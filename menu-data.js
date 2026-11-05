@@ -88,7 +88,7 @@ const defaultMenuItems = [
   // ===== SHAWARMA =====
   { id: 30, name: "Chicken Shawarma", category: "shawarma", price: 290, badge: "Best Value", desc: "Marinated chicken in soft bread with garlic sauce. Rs.290", img: "https://foxeslovelemons.com/wp-content/uploads/2023/06/Chicken-Shawarma-8.jpg" },
   { id: 31, name: "Zinger Shawarma",  category: "shawarma", price: 350,                      desc: "Crispy zinger chicken in shawarma wrap. Rs.350", img: "https://media-cdn.tripadvisor.com/media/photo-s/1a/44/c4/c8/zinger-shawarma.jpg" },
-  { id: 32, name: "Kebab Shawarma",   category: "shawarma", price: 350,                      desc: "Spiced kebab wrapped in soft bread with salad. Rs.350", img: "https://static.vecteezy.com/system/resources/previews/044/560/897/large_2x/delicious-shawarma-kebab-photo.jpeg" },
+  { id: 32, name: "Kebab Shawarma",   category: "shawarma", price: 400,                      desc: "Spiced kebab wrapped in soft bread with salad. Rs.350", img: "https://static.vecteezy.com/system/resources/previews/044/560/897/large_2x/delicious-shawarma-kebab-photo.jpeg" },
   { id: 33, name: "Grilled Shawarma", category: "shawarma", price: 400,                      desc: "Flame-grilled chicken shawarma with garlic sauce. Rs.400", img: "https://i.ytimg.com/vi/QqumNHVG_j8/maxresdefault.jpg" },
 
   // ===== OTHERS =====
@@ -155,7 +155,7 @@ const defaultMenuItems = [
   { id: 135, name: "Manchorian",           category: "chinese", price: 999,  desc: "Spicy Manchurian chicken in tangy sauce. Rs.999", img: "chinese/manchorian.png" },
   { id: 136, name: "Tender Chicken",       category: "chinese", price: 1200, desc: "Soft tender chicken in Chinese-style sauce. Rs.1200", img: "chinese/tender chicken.png" },
   { id: 137, name: "Chicken Cheese Stick", category: "chinese", price: 1200, desc: "Crispy chicken cheese sticks. Rs.1200", img: "chinese/chicken cheese sticks.png" },
-  { id: 138, name: "Chicken Cotton Blue",  category: "chinese", price: 1200, desc: "Chicken Cordon Bleu — stuffed with cheese. Rs.1200", img: "chinese/chicken cotton blue.png" },
+  { id: 138, name: "Chicken Cotton Blue",  category: "chinese", price: 1200, desc: "Chicken Cordon Bleu — stuffed  with cheese. Rs.1200", img: "chinese/chicken cotton blue.png" },
   { id: 139, name: "Chicken Chili Dry",    category: "chinese", price: 1200, desc: "Dry chili chicken — crispy and spicy. Rs.1200", img: "chinese/chicken Chilli dry.png" },
   { id: 140, name: "Egg Fried Rice",       category: "chinese", price: 500,  desc: "Classic egg fried rice. Rs.500", img: "chinese/Egg fried rice.png" },
   { id: 141, name: "Masala Fried Rice",    category: "chinese", price: 500,  desc: "Spiced masala fried rice. Rs.500", img: "chinese/massala fried rice.png" },
